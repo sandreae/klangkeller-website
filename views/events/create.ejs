@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Event</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <h3><a href="/events">Home</a></h3>
+      <h1>Create New KLANGKELLER Event</h1>
+      <form action="/events/save" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <td>KLANGKELLER ID</td>
+              <td><input type="text" name="klangkellerID" required/></td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td><input type="date" name="date" required/></td>
+            </tr>
+            <tr>
+              <td>Time</td>
+              <td><input type="text" name="time" required/></td>
+            </tr>
+            <tr>
+              <td>Venue</td>
+              <td><input type="text" name="venue" required pattern="keller|kino"/></td>
+            </tr>
+            <tr>
+              <td>Number of slots</td>
+              <td><input type="number" name="slotNumber" min="1" max="10" required/></td>
+            </tr>
+            <tr>
+              <td>Main organiser</td>
+              <td><input type="string" name="contact" required/></td>
+            </tr>
+            <tr>
+              <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

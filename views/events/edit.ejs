@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Edit event</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+    <div class="container">
+      <h3><a href="/events">Event List</a></h3>
+      <h1>Edit event</h1>
+      <form action="/events/update/<%= event._id%>" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <td>KLANGKELLER ID</td>
+              <td><input type="text" name="klangkellerID" value="<%= event.klangkellerID %>" required/></td>
+            </tr>
+            <tr>
+              <td>Date</td>
+              <td><input type="text" name="date" value="<%= event.date %>" required/></td>
+            </tr>
+            <tr>
+              <td>Time</td>
+              <td><input type="text" name="time" value="<%= event.time %>" required/></td>
+            </tr>
+            <tr>
+              <td>Venue</td>
+              <td><input type="text" name="venue" value="<%= event.venue %>" required pattern="keller|kino"/></td>
+            </tr>
+            <tr>
+              <td>Number of slots</td>
+              <td><input type="number" name="slotNumber" value="<%= event.slotNumber %>" min="1" max="10" required/></td>
+            </tr>
+            <tr>
+              <td>Main organiser</td>
+              <td><input type="string" name="contact" value="<%= event.contact %>" required/></td>
+            </tr>
+            <tr>
+              <td colspan="2"><button type="submit">Update</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <% if(query.signup === "true") { %>
+        <% include ../partials/signup-info %>
+      <% } else { %>
+        <% include ../partials/about %>
+      <% } %>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>KLANGKELLER</h1>
+      <% include ./list %>
+      <% if(query.admin === "true") { %>
+        <a href="/events/create">Create Event</a>
+      <% } %>
+    </div>
+  </body>
+</html>

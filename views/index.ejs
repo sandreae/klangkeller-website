@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Event List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+      <% include ./partials/about %>
+  </head>
+  <body>
+    <div class="container">
+      <h1>KLANGKELLER</h1>
+      <% include ./events/list %>
+      <% if(query.admin === "true") { %>
+        <a href="/events/create">Create Event</a>
+      <% } %>
+    </div>
+  </body>
+</html>

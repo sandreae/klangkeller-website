@@ -1,0 +1,34 @@
+body {
+  margin: 20px;
+}
+
+#about, #signup-info {
+  position: fixed;
+  right: 20px;
+  width: 300px;
+}
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+
+.countdown-message {
+  color: red;
+  opacity: 0;
+  animation: blinking 1s linear infinite;
+}
+
+@keyframes blinking {
+  from,
+  30% {
+    opacity: 0;
+  }
+  30.1%,
+  to {
+    opacity: 1;
+  }
+}
