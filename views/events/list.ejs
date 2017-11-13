@@ -57,6 +57,34 @@
     <% } %>
     <tr>
       <td>
+        ////////////////////////////<br>
+          <% if( events[i].documentation.name != undefined) { %>
+            Documentation: <%= events[i].documentation.name %>
+          <% } else if (query.signup === "true" || query.admin === "true"){ %>
+            Documentation: click to <a href="/events/addbardoc/<%= events[i]._id %>?signup=doc">signup</a>
+          <% } else { %>
+          Documentation: to be confirmed
+          <% } %>
+      </td>
+    </tr>
+    <% if(query.signup === "true" || query.admin === "true") { %>
+    <tr>
+      <td>
+        ////////////////////////////<br>
+        <% if(query.signup === "true" || query.admin === "true") { %>
+          <% if( events[i].bar.name != undefined) { %>
+            Bar: <%= events[i].bar.name %>
+          <% } else { %>
+            Bar Staff: click to <a href="/events/addbardoc/<%= events[i]._id %>?signup=bar">signup</a>
+          <% } %>
+        <% } else { %>
+          Bar Staff: to be confirmed
+        <% } %>
+      </td>
+    </tr>
+    <% } %>
+    <tr>
+      <td>
         <% if(query.signup === "true") { %>
         <span class="countdown-message"><%= countdown.message %></span><br>
         <% } %>
@@ -65,6 +93,7 @@
     <tr>
       <td>
         <% if(query.admin === "true") { %>
+          Main organiser: <%= events[i].contact %><br>
           <a href="/events/edit/<%= events[i]._id%>">edit event</a>
           <form action="/events/delete/<%= events[i]._id%>" method="post">
             <button type="submit">DELETE</button>

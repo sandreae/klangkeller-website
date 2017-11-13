@@ -37,6 +37,21 @@ router.post('/saveslot/:id1/:id2', function(req, res) {
   event.saveSlot(req, res);
 });
 
+// Save bar
+router.post('/savebar/:id', function(req, res) {
+  event.saveBar(req, res);
+});
+
+// Save doc
+router.post('/savedoc/:id', function(req, res) {
+  event.saveDoc(req, res);
+});
+
+// Add bar and doc
+router.get('/addbardoc/:id', function(req, res) {
+  event.addBarDoc(req, res);
+});
+
 // Edit update
 router.post('/update/:id', function(req, res) {
   event.update(req, res);

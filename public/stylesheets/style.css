@@ -3,9 +3,10 @@ body {
 }
 
 #about, #signup-info {
-  position: fixed;
+  font-size: 0.9em;
+  position: absolute;
   right: 20px;
-  width: 300px;
+  width: 500px;
 }
 
 input:invalid {

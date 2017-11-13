@@ -41,7 +41,7 @@ eventController.save = function(req, res) {
     } else {
       console.log(event)
       console.log("Successfully created an event.");
-      res.redirect("/events");
+      res.redirect("/events?admin=true");
     }
   });
 };
@@ -66,7 +66,7 @@ eventController.update = function(req, res) {
     time: req.body.time,
     venue: req.body.venue,
     contact: req.body.contact,
-    slotNumber: req.body.slotNumber
+    slotNumber: req.body.slotNumber,
   }}, { new: true }, function (err, event) {
     if (err) {
       console.log(err);
@@ -89,6 +89,56 @@ eventController.addSlot = function(req, res) {
   });
 };
 
+
+// add a slot
+eventController.addBarDoc = function(req, res) {
+  Event.findOne({_id: req.params.id}).exec(function (err, event) {
+    if (err) {
+      console.log("Error:", err);
+    }
+    else {
+      res.render("../views/events/savebardoc", {event: event, query: req.query});
+    }
+  });
+};
+
+// save bar
+eventController.saveDoc = function(req, res) {
+  Event.findByIdAndUpdate(req.params.id,
+    { $set: {
+      "documentation.name": req.body.name,
+      "documentation.contact": req.body.contact
+    }},
+      function(err,doc) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log("Documentation updated");
+          res.redirect("/events");
+        }
+    }
+  );
+};
+
+// save bar
+eventController.saveBar = function(req, res) {
+  Event.findByIdAndUpdate(req.params.id,
+    { $set: {
+      "bar.name": req.body.name,
+      "bar.contact": req.body.contact
+    }},
+      function(err,doc) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log("Bar updated");
+          res.redirect("/events");
+        }
+    }
+  );
+};
 
 // save slot
 eventController.saveSlot = function(req, res) {
@@ -122,7 +172,7 @@ eventController.delete = function(req, res) {
     }
     else {
       console.log("Event deleted!");
-      res.redirect("/events");
+      res.redirect("/events?admin=true");
     }
   });
 };

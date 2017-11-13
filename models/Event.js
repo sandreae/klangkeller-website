@@ -16,6 +16,10 @@ var Event = new mongoose.Schema({
   contact: String,
   slotNumber: Number,
   slots: [Slot],
+  documentation: {
+    name: String,
+    contact: String
+  },
   bar: {
   	name: String,
   	contact: String
