@@ -1,0 +1,37 @@
+<html>
+<%
+slotDurations = function(slots){
+
+console.log(slots);
+
+	var longestSlot
+	var options = ""
+	var maxLength = 60
+	var subtotal = 0
+
+	slots.forEach( function (slot)
+	{
+	    var x = slot.duration
+	    subtotal += +x
+	    console.log(subtotal);
+
+	});
+
+	var timeleft = 121-subtotal
+
+	if (timeleft >= 60 ) {
+		longestSlot = 60
+	} else {
+		longestSlot = timeleft
+	}
+
+	for (i = 1; i <= longestSlot/5; i++) {
+		x = i*5
+	    var option = '<option value="' + x + '">' + x + 'minutes</option>';
+	    options += option
+	} 
+
+	return options
+}
+%>
+</html>

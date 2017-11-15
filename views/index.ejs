@@ -1,17 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Event List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KLANGKELLER</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-      <% include ./partials/about %>
   </head>
   <body>
     <div class="container">
+      <div class ="title">
       <h1>KLANGKELLER</h1>
+      </div>
+      <div class="about">
+      <% if(query.signup === "true") { %>
+        <% include ./partials/signup-info %>
+      <% } else { %>
+        <% include ./partials/about %>
+      <% } %>
+    </div>
+    <div class="content">
       <% include ./events/list %>
       <% if(query.admin === "true") { %>
         <a href="/events/create">Create Event</a>
       <% } %>
+    </div>
     </div>
   </body>
 </html>

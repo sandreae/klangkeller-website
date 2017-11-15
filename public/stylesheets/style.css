@@ -1,12 +1,40 @@
-body {
-  margin: 20px;
-}
+
 
 #about, #signup-info {
   font-size: 0.9em;
-  position: absolute;
-  right: 20px;
-  width: 500px;
+  position: inline-block;
+}
+
+.about {
+  margin: 10px;
+}
+
+.content {
+  margin: 10px;
+}
+
+@media only screen and (min-width: 600px) {
+  #about, #signup-info {
+    font-size: 0.9em;
+  }
+
+  .title {
+    width: 45vw;
+
+  }
+
+  .about {
+    width: 45vw;
+    position: absolute;
+    right: 0px;
+    top:10px;
+    margin: 10px;
+  }
+
+  .content {
+    width: 45vw;
+    margin: 10px;
+  }
 }
 
 input:invalid {

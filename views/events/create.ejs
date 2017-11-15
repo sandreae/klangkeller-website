@@ -1,13 +1,17 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Create Event</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
     <div class="container">
-      <h3><a href="/events">Home</a></h3>
-      <h1>Create New KLANGKELLER Event</h1>
+      <div class="title">
+        <h1>KLANGKELLER</h1>
+        <h2>Create New Event</h2>
+      </div>
+      <div class="content">
       <form action="/events/save" method="post" id="event">
         <table>
           <tbody>
@@ -53,6 +57,7 @@
           </tbody>
         </table>
       </form>
+    </div>
     </div>
   </body>
 </html>

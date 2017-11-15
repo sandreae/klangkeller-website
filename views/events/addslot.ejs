@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign-up</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <% include ../partials/signup-info %>
+    <% include ../../public/js/slotdurations %>
   </head>
   <body>
     <div class="container">
+      <div class="title">
       <h1>KLANGKELLER <%= event.klangkellerID %> Sign-up</h1>
-      <form action="/events/saveslot/<%= event._id%>/<%= query.slot %>" method="post">
+      <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
+      <%= eventDate %>
+      </div>
+    <div class="content">
+      <form id="event" action="/events/saveslot/<%= event._id%>/<%= query.slot %>" method="post">
         <table>
           <tbody>
             <tr>
@@ -21,7 +27,13 @@
               </tr>
               <tr>
                 <td>Duration (in minutes)</td>
-                <td><input type="number" name="duration" required/></td>
+                <td>
+                <select name="duration" form="event" required>
+                  <% var slots = event.slots %>
+                  <% var options = slotDurations(slots) %>
+                  <%- options %>
+                </select>
+              </td>
               </tr>
               <tr>
                 <td>Contact email</td>
@@ -32,6 +44,10 @@
           </tbody>
         </table>
       </form>
+    </div>
+    <div class="about">
+      <% include ../partials/signup-info %>
+    </div>
     </div>
   </body>
 </html>

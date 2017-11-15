@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign-up</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <% include ../partials/signup-info %>
   </head>
   <body>
     <div class="container">
-      
+      <div class="title">
       <h1>KLANGKELLER <%= event.klangkellerID %> Sign-up</h1>
+    </div>
+    <div class="about">
+      <% include ../partials/signup-info %>
+    </div>
+    <div class="content">
       <% query.signup %>
       <form action="/events/save<%= query.signup %>/<%= event._id%>" method="post">
         <table>
@@ -26,6 +31,7 @@
           </tbody>
         </table>
       </form>
+    </div>
     </div>
   </body>
 </html>
