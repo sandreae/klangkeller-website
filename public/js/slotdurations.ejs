@@ -1,12 +1,11 @@
 <html>
 <%
-slotDurations = function(slots){
+slotDurations = function(slots, maxLength){
 
 console.log(slots);
 
 	var longestSlot
 	var options = ""
-	var maxLength = 60
 	var subtotal = 0
 
 	slots.forEach( function (slot)
@@ -19,10 +18,10 @@ console.log(slots);
 
 	var timeleft = 121-subtotal
 
-	if (timeleft >= 60 ) {
-		longestSlot = 60
+	if (timeleft === 1){
+		longestSlot = 10
 	} else {
-		longestSlot = timeleft
+		longestSlot = maxLength		
 	}
 
 	for (i = 1; i <= longestSlot/5; i++) {

@@ -29,8 +29,8 @@
                 <td>Duration (in minutes)</td>
                 <td>
                 <select name="duration" form="event" required>
-                  <% var slots = event.slots %>
-                  <% var options = slotDurations(slots) %>
+                  <% var slots = event.slots %><% var maxSlot = event.maxSlot %>
+                  <% var options = slotDurations(slots, maxSlot) %>
                   <%- options %>
                 </select>
               </td>

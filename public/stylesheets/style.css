@@ -24,7 +24,7 @@
   }
 
   .about {
-    width: 45vw;
+    width: 25vw;
     position: absolute;
     right: 0px;
     top:10px;
@@ -32,7 +32,7 @@
   }
 
   .content {
-    width: 45vw;
+    width: 30vw;
     margin: 10px;
   }
 }

@@ -40,6 +40,11 @@
               <td><input type="number" name="slotNumber" min="1" max="10" required value="<%= event.slotNumber %>"/></td>
             </tr>
             <tr>
+              <td>Maximum slot length</td>
+              <td><input type="number" name="maxSlot" min="5" max="60" required value="<%= event.maxSlot %>"/></td>
+            </tr>
+
+            <tr>
               <td>Main organiser</td>
               <td>
                 <select name="contact" form="event" required value="<%= event.contact %>">
