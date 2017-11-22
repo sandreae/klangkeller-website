@@ -29,10 +29,7 @@ eventController.save = function(req, res) {
     time: req.body.time,
     venue: req.body.venue,
     contact: req.body.contact,
-    slotNumber: req.body.slotNumber,
-    maxSlot: req.body.maxSlot,
-    slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5},{slot: 6},{slot: 7},{slot: 8},{slot: 9},{slot: 10}],
-    documentation: {},
+    slots: [{slot: 1},{slot: 2},{slot: 3}]
     bar: {}
   });
   event.save(function(err) {
@@ -67,8 +64,6 @@ eventController.update = function(req, res) {
     time: req.body.time,
     venue: req.body.venue,
     contact: req.body.contact,
-    slotNumber: req.body.slotNumber,
-    maxSlot: req.body.maxSlot,
   }}, { new: true }, function (err, event) {
     if (err) {
       console.log(err);

@@ -14,8 +14,6 @@ var Event = new mongoose.Schema({
   time: String,
   venue: String,
   contact: String,
-  slotNumber: Number,
-  maxSlot: Number,
   slots: [Slot],
   documentation: {
     name: String,

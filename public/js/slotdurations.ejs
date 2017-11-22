@@ -1,35 +1,25 @@
 <html>
 <%
-slotDurations = function(slots, maxLength){
+slotDurations = function(slots){
 
-console.log(slots);
+function remove(array, element) {
+    const index = array.indexOf(element);
+    array.splice(index, 1);
+}
 
-	var longestSlot
+	var remainingSlots = [5, 20, 45]
 	var options = ""
-	var subtotal = 0
 
-	slots.forEach( function (slot)
-	{
-	    var x = slot.duration
-	    subtotal += +x
-	    console.log(subtotal);
-
+	slots.forEach(function(slot){
+		console.log(slot.duration)
+		var x = slot.duration
+		if (slot.duration !== null) {remove(remainingSlots, x)}
 	});
 
-	var timeleft = 121-subtotal
-
-	if (timeleft === 1){
-		longestSlot = 10
-	} else {
-		longestSlot = maxLength		
-	}
-
-	for (i = 1; i <= longestSlot/5; i++) {
-		x = i*5
-	    var option = '<option value="' + x + '">' + x + 'minutes</option>';
-	    options += option
-	} 
-
+	remainingSlots.forEach(function(time){
+    var option = '<option value="' + time + '">' + time + 'minutes</option>';
+    options += option
+	})
 	return options
 }
 %>
