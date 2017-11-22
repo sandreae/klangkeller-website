@@ -29,7 +29,7 @@ eventController.save = function(req, res) {
     time: req.body.time,
     venue: req.body.venue,
     contact: req.body.contact,
-    slots: [{slot: 1},{slot: 2},{slot: 3}]
+    slots: [{slot: 1},{slot: 2},{slot: 3}],
     bar: {}
   });
   event.save(function(err) {
