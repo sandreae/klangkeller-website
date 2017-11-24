@@ -9,7 +9,7 @@
   <body>
     <div class="container">
       <div class="title">
-      <h1>KLANGKELLER <%= event.klangkellerID %> Sign-up</h1>
+      <h3>KLANGKELLER <%= event.klangkellerID %><br>sign-up</h3>
       <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
       <%= eventDate %>
       </div>
@@ -23,7 +23,7 @@
               </tr>
               <tr>
                 <td>Description</td>
-                <td><input type="text" name="description" required/></td>
+                <td><textarea name="description" form="event" class="description"></textarea></td>
               </tr>
               <tr>
                 <td>Duration (in minutes)</td>
