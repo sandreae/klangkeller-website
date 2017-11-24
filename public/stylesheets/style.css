@@ -1,4 +1,6 @@
-
+.title {
+  font-size: 1.5em;
+}
 
 #about, #signup-info {
   font-size: 0.9em;
@@ -20,7 +22,6 @@
 
   .title {
     width: 45vw;
-
   }
 
   .about {

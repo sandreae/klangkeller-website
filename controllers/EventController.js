@@ -29,6 +29,7 @@ eventController.save = function(req, res) {
     time: req.body.time,
     venue: req.body.venue,
     contact: req.body.contact,
+    slotNumber: req.body.slotNumber,
     slots: [{slot: 1},{slot: 2},{slot: 3}],
     bar: {}
   });

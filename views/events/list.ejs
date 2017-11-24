@@ -5,7 +5,7 @@
   <% for(var i=0; i<events.length;i++) { %>
     <tr>
       <td>
-        <b><%= events[i].klangkellerID%></b>
+        <span class="title"><b><%= events[i].klangkellerID%></b></span>
       </td>
     </tr>
     <tr>
@@ -82,6 +82,9 @@
         <% } %>
       </td>
     </tr>
+    <tr><td>
+      ////////////////////////////<br>
+      Main Contact: <%= events[i].contact %></td></tr>
     <% } %>
     <tr>
       <td>
@@ -93,7 +96,6 @@
     <tr>
       <td>
         <% if(query.admin === "true") { %>
-          Main organiser: <%= events[i].contact %><br>
           <a href="/events/edit/<%= events[i]._id%>">edit event</a>
           <form action="/events/delete/<%= events[i]._id%>" method="post">
             <button type="submit">DELETE</button>
