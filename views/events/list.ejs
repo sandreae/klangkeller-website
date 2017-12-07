@@ -2,7 +2,14 @@
 <table class="list-table">
 <% include ../../public/js/counter %>
 <tbody>
-  <% for(var i=0; i<events.length;i++) { %>
+  <% 
+  events.sort(function compare(a, b) {
+    var dateA = new Date(a.date);
+    var dateB = new Date(b.date);
+    return dateA - dateB;
+  });
+
+  for(var i=0; i<events.length;i++) { %>
     <tr>
       <td>
         <span class="title"><b><%= events[i].klangkellerID%></b></span>
