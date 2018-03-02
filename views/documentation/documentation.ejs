@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KLANGKELLER</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+      <div class ="title">
+      <h1>KLANGKELLER</h1>
+      </div>
+      <% 
+      events.sort(function compare(a, b) {
+        var dateA = new Date(a.date);
+        var dateB = new Date(b.date);
+        return dateA - dateB;
+      });
+
+      for(var i=0; i<events.length;i++) { %>
+        
+      <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
+      <div class="docu-content">
+        <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
+        <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
+        <b><%= eventDate %></b><br>
+
+        <% for(var x=0; x<events[i].slotNumber;x++) { %>
+        ////////////////////////////<br>
+        <%= events[i].slots[x].title%><br>
+        <% } %>
+        <p>Documentation by: <%= events[i].documentation.name %></p>
+        <%- include("./" + events[i].klangkellerID); %>
+        <% } %>
+      <% } %>
+      </div>
+    </div>
+  </body>
+</html>
