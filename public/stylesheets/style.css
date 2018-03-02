@@ -26,6 +26,15 @@
   margin: auto;
 }
 
+.about-img {
+  max-width: 100%;
+}
+
+.docu-title {
+  text-align: center;
+  width: 100%;
+}
+
 .docu-image {
   max-width: 100%
 }
@@ -43,6 +52,11 @@
 
   .title {
     width: 45vw;
+  }
+
+  .docu-title {
+    width: 100%;
+    font-size: 1.5em;
   }
 
   .about {
