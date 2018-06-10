@@ -1,6 +1,5 @@
 <html>
-<%
-counter = function (eventDate, slotNumber, count){
+<% counter = function (eventDate, slotNumber, count){
 
 	Date.prototype.addDays = function(days) {
 	  var dat = new Date(this.valueOf());
@@ -13,13 +12,16 @@ counter = function (eventDate, slotNumber, count){
 	var signupDate
 	var slotsLeft = slotNumber - count
 
-
 	var now = new Date()
+	console.log(eventDate)
 	eventDate = new Date(eventDate)
 
 	if (slotsLeft >= 3) {signupDate = eventDate.addDays(-30)}
-	if (slotsLeft === 2) {signupDate = eventDate.addDays(-7)}
-	if (slotsLeft === 1) {signupDate = eventDate.addDays(-1)}
+	if (slotsLeft === 2) {signupDate = eventDate.addDays(-21)}
+	if (slotsLeft === 1) {signupDate = eventDate.addDays(-14)}
+
+	console.log(signupDate)
+	console.log(eventDate)
 
 	var mil = signupDate - now 
 	var seconds = (mil / 1000) | 0;
@@ -46,10 +48,7 @@ counter = function (eventDate, slotNumber, count){
 
 	countdown.message = message
     countdown.signupLink = signupLink
-
+    console.log("Countdown successful")
 	return countdown
-}
-
-%>
-
+} %>
 </html>

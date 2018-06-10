@@ -7,17 +7,24 @@
   </head>
   <body>
     <div class="container">
-      <div class="title">
-        <h1>KLANGKELLER</h1>
-        <h2>Create New Event</h2>
-      </div>
+      <% include ../partials/title %>        
+      <h2>Create New Event</h2>
       <div class="content">
       <form action="/events/save" method="post" id="event">
         <table>
           <tbody>
             <tr>
-              <td>KLANGKELLER ID</td>
+              <td>Event Name/No.</td>
               <td><input type="text" name="klangkellerID" required/></td>
+            </tr>
+            <tr>
+              <td>Is this a festival event?</td>
+              <td>
+                <select name="isFestival" form="event" required value="false">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td>Date (yyyy-mm-dd)</td>
@@ -29,7 +36,15 @@
             </tr>
             <tr>
               <td>Number of Slots</td>
-              <td><input type="text" name="slotNumber" required value="3" readonly/></td>
+              <td>
+                <select type="number" name="slotNumber" form="event" required value="1">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td>Venue</td>
@@ -37,6 +52,7 @@
                 <select name="venue" form="event" required value="kino">
                   <option value="kino">Kino</option>
                   <option value="keller">Keller</option>
+                  <option value="ĥof">Hof</option>
                 </select>
               </td>
             </tr>
@@ -48,6 +64,8 @@
                   <option value="mio[at]klangkeller.net">Mio</option>
                   <option value="neo[at]klangkeller.net">Neo</option>
                   <option value="sam[at]klangkeller.net">Sam</option>
+                  <option value="aziz[at]klangkeller.net">Aziz</option>
+                  <option value="chris[at]klangkeller.net">Chris</option>
                 </select>
               </td>
             </tr>

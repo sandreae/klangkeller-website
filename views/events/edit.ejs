@@ -4,19 +4,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Edit Event</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script> 
+      document.addEventListener("DOMContentLoaded", function(event) {
+        console.log("<%= event.isFestival %>")
+        document.getElementById("isFestival").value = "<%= event.isFestival %>"
+        document.getElementById("slotNumber").value = "<%= event.slotNumber %>"
+        document.getElementById("venue").value = "<%= event.venue %>"
+        document.getElementById("contactForm").value = "<%= event.contact %>"
+    });</script>
   </head>
   <body>
     <div class="container">
-      <div class="title">
-        <h1>KLANGKELLER</h1>
-        <h2>Edit Event</h2>
-      </div>
+      <% include ../partials/title %>
+      <h2>Edit Event</h2>
       <form action="/events/update/<%= event._id %>" method="post" id="event">
         <table>
           <tbody>
             <tr>
-              <td>KLANGKELLER ID</td>
+              <td>Event Name/No.</td>
               <td><input type="text" name="klangkellerID" required value="<%= event.klangkellerID %>"/></td>
+            </tr>
+            <tr>
+              <td>Is this a festival event?</td>
+              <td>
+                <select id="isFestival" name="isFestival" form="event" required value="<%= event.isFestival %>">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td>Date (yyyy-mm-dd)</td>
@@ -29,15 +44,24 @@
             <tr>
               <td>Venue</td>
               <td>
-                <select name="venue" form="event" required value="<%= event.venue %>">
+                <select name="venue" id="venue" form="event" required value="<%= event.venue %>">
                   <option value="kino">Kino</option>
                   <option value="keller">Keller</option>
+                  <option value="hof">Hof</option>
                 </select>
               </td>
             </tr>
             <tr>
-              <td>Number of slots</td>
-              <td><input type="number" name="slotNumber" min="1" max="10" required value="3" readonly/></td>
+              <td>Number of Slots</td>
+              <td>
+                <select id="slotNumber" name="slotNumber" form="event" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </td>
             </tr>
             <tr>
               <td>Main organiser</td>
@@ -46,7 +70,9 @@
                   <option value="klaas[at]klangkeller.net">Klaas</option>
                   <option value="mio[at]klangkeller.net">Mio</option>
                   <option value="neo[at]klangkeller.net">Neo</option>
-                  <option selected value="sam[at]klangkeller.net">Sam</option>
+                  <option value="sam[at]klangkeller.net">Sam</option>
+                  <option value="aziz[at]klangkeller.net">Aziz</option>
+                  <option value="chris[at]klangkeller.net">Chris</option>
                 </select>
               </td>
             </tr>

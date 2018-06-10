@@ -14,7 +14,7 @@ var Event = new mongoose.Schema({
   time: String,
   venue: String,
   contact: String,
-  slotNumber: String,
+  slotNumber: Number,
   slots: [Slot],
   documentation: {
     name: String,
@@ -24,6 +24,7 @@ var Event = new mongoose.Schema({
   	name: String,
   	contact: String
   },
+  isFestival: false,
   updated_at: { type: Date, default: Date.now },
 });
 

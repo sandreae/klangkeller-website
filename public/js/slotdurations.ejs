@@ -1,26 +1,24 @@
 <html>
-<%
-slotDurations = function(slots){
+	<% slotDurations = function(slots){
 
-function remove(array, element) {
-    const index = array.indexOf(element);
-    array.splice(index, 1);
-}
+	function remove(array, element) {
+	    const index = array.indexOf(element);
+	    array.splice(index, 1);
+	}
 
-	var remainingSlots = [5, 20, 45]
-	var options = ""
+		var remainingSlots = [5, 20, 45]
+		var options = ""
 
-	slots.forEach(function(slot){
-		console.log(slot.duration)
-		var x = slot.duration
-		if (slot.duration !== null) {remove(remainingSlots, x)}
-	});
+		slots.forEach(function(slot){
+			console.log(slot.duration)
+			var x = slot.duration
+			if (slot.duration !== null) {remove(remainingSlots, x)}
+		});
 
-	remainingSlots.forEach(function(time){
-    var option = '<option value="' + time + '">' + time + 'minutes</option>';
-    options += option
-	})
-	return options
-}
-%>
+		remainingSlots.forEach(function(time){
+	    var option = '<option value="' + time + '">' + time + 'minutes</option>';
+	    options += option
+		})
+		return options
+	} %>
 </html>

@@ -4,14 +4,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign-up</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <% include ../../public/js/slotdurations %>
+    <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
   </head>
   <body>
     <div class="container">
-      <div class="title">
-      <h3>KLANGKELLER <%= event.klangkellerID %><br>sign-up</h3>
-      <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
-      <%= eventDate %>
+      <% include ../partials/title %>        
+      <div class="sub-title">
+      <h2><%= event.klangkellerID %><br><%= eventDate %><br>sign-up</h2>
       </div>
     <div class="content">
       <form id="event" action="/events/saveslot/<%= event._id%>/<%= query.slot %>" method="post">
@@ -29,9 +28,18 @@
                 <td>Duration (in minutes)</td>
                 <td>
                 <select name="duration" form="event" required>
-                  <% var slots = event.slots %>
-                  <% var options = slotDurations(slots) %>
-                  <%- options %>
+                  <option value="5">5</option>
+                  <option value="10">10</option>
+                  <option value="15">15</option>
+                  <option value="20">20</option>
+                  <option value="25">25</option>
+                  <option value="30">30</option>
+                  <option value="35">35</option>
+                  <option value="40">40</option>
+                  <option value="45">45</option>
+                  <option value="50">50</option>
+                  <option value="55">55</option>
+                  <option value="60">60</option>
                 </select>
               </td>
               </tr>
