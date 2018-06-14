@@ -7,11 +7,7 @@
       <span class="title"><h1>Summer Party Friday 13th & Saturday 14th of July</h1></span>
     </td>
   </tr>
-  <% for(var i=0; i<events.length;i++) { %>
-    <% if(events[i].isFestival !== "false" && events[i].isFestival === "true") { %>
-      <% include ./events %>  
-    <% } %>
-  <% } %>
+    <%- include ./festivalevent %>  
 </tbody>
 </table>
 </html>

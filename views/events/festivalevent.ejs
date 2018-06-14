@@ -1,0 +1,110 @@
+<html>
+  <%
+  events.sort(function compare(a, b) {
+    var dateA = new Date(a.date);
+    var dateB = new Date(b.date);
+    return dateA - dateB;
+  }); %>
+  <% for(var i=0; i<events.length;i++) { %>
+  <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
+  <% var count = 0 %>
+    <% for(var x=0; x<events[i].slotNumber;x++) { %>
+      <% if(events[i].slots[x].title != undefined) { %>
+      <% count++ %>
+      <% } %>
+    <% } %>
+  <% var countdown = counter(eventDate, events[i].slotNumber, count) 
+  console.log(countdown) %>
+    <tr>
+      <td>
+        <span class="title"><b><%= events[i].klangkellerID%></b></span>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <b><%= eventDate %><br>
+        <%= events[i].time%> in the <%= events[i].venue%></b>
+      </td>
+    </tr>
+
+    <% for(var x=0; x<events[i].slotNumber;x++) { %>
+      <% if(events[i].slots[x].title != undefined) { %>
+        <tr>
+          <td>
+            ////////////////////////////<br>
+            <b><%= events[i].slots[x].title%></b>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= events[i].slots[x].duration%> minutes
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= events[i].slots[x].description%>
+          </td>
+        </tr>
+      <% } else { %>
+      <tr>
+        <td>
+          ////////////////////////////<br>
+          <% if(query.signup === "true" && countdown.signupLink === true) { %>
+            click to <a href="/events/addslot/<%= events[i]._id %>?slot=<%= events[i].slots[x]._id %>">signup</a>
+          <% } else { %>
+            program to be confirmed
+          <% } %>
+        </td>
+      </tr>
+      <% } %>
+    <% } %>
+    <tr>
+      <td>
+        ////////////////////////////<br>
+          <% if( events[i].documentation.name != undefined) { %>
+            Documentation: <%= events[i].documentation.name %>
+          <% } else if (query.signup === "true" || query.admin === "true"){ %>
+            Documentation: click to <a href="/events/addbardoc/<%= events[i]._id %>?signup=doc">signup</a>
+          <% } else { %>
+          Documentation: to be confirmed
+          <% } %>
+      </td>
+    </tr>
+    <% if(query.signup === "true" || query.admin === "true") { %>
+    <tr>
+      <td>
+        ////////////////////////////<br>
+        <% if(query.signup === "true" || query.admin === "true") { %>
+          <% if( events[i].bar.name != undefined) { %>
+            Bar/Door Staff: <%= events[i].bar.name %>
+          <% } else { %>
+            Bar/Door Staff: click to <a href="/events/addbardoc/<%= events[i]._id %>?signup=bar">signup</a>
+          <% } %>
+        <% } else { %>
+          Bar Staff: to be confirmed
+        <% } %>
+      </td>
+    </tr>
+    <tr><td>
+      ////////////////////////////<br>
+      Main Organiser: <%= events[i].contact %></td></tr>
+    <% } %>
+    <tr>
+      <td>
+        <% if(query.signup === "true") { %>
+        <span class="countdown-message"><%= countdown.message %></span><br>
+        <% } %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <% if(query.admin === "true") { %>
+          <a href="/events/edit/<%= events[i]._id%>">edit event</a>
+          <form action="/events/delete/<%= events[i]._id%>" method="post">
+            <button type="submit">DELETE</button>
+          </form>
+        <% } %>
+        <% } %>
+      </td>
+    </tr>
+</html>
