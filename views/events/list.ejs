@@ -8,7 +8,7 @@
     </td>
   </tr>
   <% for(var i=0; i<events.length;i++) { %>
-    <% if(events[i].isFestival && events[i].isFestival === "true") { %>
+    <% if(events[i].isFestival !== "false" && events[i].isFestival === "true") { %>
       <% include ./events %>  
     <% } %>
   <% } %>
