@@ -30,7 +30,7 @@ eventController.save = function(req, res) {
     venue: req.body.venue,
     contact: req.body.contact,
     slotNumber: req.body.slotNumber,
-    slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5}],
+    slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5},{slot: 6},{slot: 7},{slot: 8}],
     bar: {},
     isFestival: req.body.isFestival
   });
@@ -66,6 +66,7 @@ eventController.update = function(req, res) {
     time: req.body.time,
     venue: req.body.venue,
     contact: req.body.contact,
+    slotNumber: req.body.slotNumber,
     isFestival: req.body.isFestival
   }}, { new: true }, function (err, event) {
     if (err) {
