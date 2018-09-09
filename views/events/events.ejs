@@ -6,7 +6,7 @@
     return dateA - dateB;
   }); %>
   <% for(var i=0; i<events.length;i++) { %>
-  <% if(events[i].isFestival === "true") { %>
+  <% if(events[i].isFestival !== "true") { %>
     <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
     <% var count = 0 %>
       <% for(var x=0; x<events[i].slotNumber;x++) { %>
@@ -105,6 +105,7 @@
               <button type="submit">DELETE</button>
             </form>
           <% } %>
+      <% } %>
       <% } %>
       </td>
     </tr>
