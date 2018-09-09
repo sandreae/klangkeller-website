@@ -3,7 +3,7 @@
   events.sort(function compare(a, b) {
     var dateA = new Date(a.date);
     var dateB = new Date(b.date);
-    return dateA - dateB;
+    return dateB - dateA;
   }); %>
   <% for(var i=0; i<events.length;i++) { %>
   <% if(events[i].isFestival !== "true") { %>
