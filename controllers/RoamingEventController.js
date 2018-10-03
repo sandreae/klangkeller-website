@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var Event = require("../models/Event");
-
 var eventController = {};
 
 // Show list of Events
@@ -11,14 +10,14 @@ eventController.list = function(req, res) {
     }
     else {
       console.log(events)
-      res.render("../views/events/index", {events: events, query: req.query});
+      res.render("../views/roaming/index", {events: events, query: req.query});
     }
   });
 };
 
 // Create new Event
 eventController.create = function(req, res) {
-  res.render("../views/events/create");
+  res.render("../views/roaming/create_roaming");
 };
 
 // Save new Event
@@ -32,16 +31,17 @@ eventController.save = function(req, res) {
     slotNumber: req.body.slotNumber,
     slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5},{slot: 6},{slot: 7},{slot: 8}],
     bar: {},
-    isFestival: req.body.isFestival
+    isFestival: req.body.isFestival,
+    isRoaming: req.body.isRoaming
   });
   event.save(function(err) {
     if(err) {
       console.log(err);
-      res.render("../views/events/create");
+      res.render("../views/roaming/create_roaming");
     } else {
       console.log(event)
       console.log("Successfully created an event.");
-      res.redirect("/events?admin=true");
+      res.redirect("/roaming?admin=true");
     }
   });
 };
@@ -53,7 +53,7 @@ eventController.edit = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/events/edit", {event: event});
+      res.render("../views/roaming/edit_roaming", {event: event});
     }
   });
 };
@@ -67,14 +67,15 @@ eventController.update = function(req, res) {
     venue: req.body.venue,
     contact: req.body.contact,
     slotNumber: req.body.slotNumber,
-    isFestival: req.body.isFestival
+    isFestival: req.body.isFestival,
+    isRoaming: req.body.isRoaming
   }}, { new: true }, function (err, event) {
     if (err) {
       console.log(err);
-      res.render("../views/events/edit", {event: req.body});
+      res.render("../views/roaming/edit_roaming", {event: req.body});
     }
     console.log(event)
-    res.redirect("/events/");
+    res.redirect("/roaming/");
   });
 };
 
@@ -85,7 +86,7 @@ eventController.addSlot = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/events/addslot", {event: event, query: req.query});
+      res.render("../views/roaming/addslot_roaming", {event: event, query: req.query});
     }
   });
 };
@@ -98,7 +99,7 @@ eventController.addBarDoc = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/events/savebardoc", {event: event, query: req.query});
+      res.render("../views/roaming/savebardoc_roaming", {event: event, query: req.query});
     }
   });
 };
@@ -116,7 +117,7 @@ eventController.saveDoc = function(req, res) {
         }
         else {
           console.log("Documentation updated");
-          res.redirect("/events");
+          res.redirect("/roaming");
         }
     }
   );
@@ -135,7 +136,7 @@ eventController.saveBar = function(req, res) {
         }
         else {
           console.log("Bar updated");
-          res.redirect("/events");
+          res.redirect("/roaming");
         }
     }
   );
@@ -159,7 +160,7 @@ eventController.saveSlot = function(req, res) {
         else {
           console.log("Slot updated");
           console.log(doc)
-          res.redirect("/events");
+          res.redirect("/roaming");
         }
     }
   );
@@ -173,7 +174,7 @@ eventController.delete = function(req, res) {
     }
     else {
       console.log("Event deleted!");
-      res.redirect("/events?admin=true");
+      res.redirect("/roaming?admin=true");
     }
   });
 };

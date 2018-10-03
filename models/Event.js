@@ -25,6 +25,7 @@ var Event = new mongoose.Schema({
   	contact: String
   },
   isFestival: false,
+  isRoaming: false,
   updated_at: { type: Date, default: Date.now },
 });
 
