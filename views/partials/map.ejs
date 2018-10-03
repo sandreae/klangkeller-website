@@ -1,8 +1,12 @@
 <html>
-  <div id="mapid"></div>
-  <script>
-    var string = <%- JSON.stringify(events[i].venue) %>
-    var gps = string.split(','); 
-  </script>
-  <script type="text/javascript" src="/js/map.js"></script>
+<tr>
+	<td>
+	  <div id="mapid"></div>
+	  <script>
+	    var string = <%- JSON.stringify(events[i].venue) %>
+	    var gps = string.split(','); 
+	  </script>
+	  <script type="text/javascript" src="/js/map.js"></script>
+	</td>
+</tr>
 </html>

@@ -1,6 +1,5 @@
 <html>
-
-<%  events.sort(function compare(a, b) {
+<% events.sort(function compare(a, b) {
     var dateA = new Date(a.date);
     var dateB = new Date(b.date);
     return dateB - dateA;
@@ -9,6 +8,7 @@
 
     if(events[i].isRoaming === "true") {
 
+      var address = "roaming"
       var eventDate = events[i].date; 
       var eventDate = eventDate.toDateString()
       var count = 0
@@ -19,59 +19,12 @@
       } 
       var countdown = counter(eventDate, events[i].slotNumber, count) %>
 
-      <tr>
-        <td>
-          <span class="title"><b><%= events[i].klangkellerID%></b></span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <b><%= events[i].date.toDateString() %><br>
-          <%= events[i].time%> at <%= events[i].venue%></b>
-        </td>
-      </tr>
+      <% include ../partials/event-title %>
       <% include ../partials/slots %>
-      <tr>
-        <td>
-          ////////////////////////////<br>
-            <% if( events[i].documentation.name != undefined) { %>
-              Documentation: <%= events[i].documentation.name %>
-            <% } else if (query.signup === "true" || query.admin === "true"){ %>
-              Documentation: click to <a href="/roaming/addbardoc/<%= events[i]._id %>?signup=doc">signup</a>
-            <% } else { %>
-            Documentation: to be confirmed
-            <% } %>
-        </td>
-      </tr>
-      <% if(query.signup === "true" || query.admin === "true") { %>
-      <tr><td>
-        ////////////////////////////<br>
-        Contact: <%= events[i].contact %></td></tr>
-      <% } %>
-      <tr>
-        <td>
-          <% if(query.signup === "true") { %>
-          <span class="countdown-message"><%= countdown.message %></span><br>
-          <% } %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <% include ../partials/map %>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <% if(query.admin === "true") { %>
-            <a href="/roaming/edit/<%= events[i]._id%>">edit event</a>
-            <form action="/roaming/delete/<%= events[i]._id%>" method="post">
-              <button type="submit">DELETE</button>
-            </form>
-          <% } %>
-        </td>
-      </tr>
-    <%
-    }
-} 
-%>
+      <% include ../partials/documentation-slot %>
+      <% include ../partials/event-contact %>
+      <% include ../partials/event-countdown %>
+      <% include ../partials/map %>
+      <% include ../partials/event-admin %>
+    <% }} %>
 </html>

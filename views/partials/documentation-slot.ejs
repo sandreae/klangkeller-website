@@ -1,0 +1,14 @@
+<html>  
+    <tr>
+        <td>
+          ////////////////////////////<br>
+			<% if( events[i].documentation.name != undefined) { %>
+			  Documentation: <%= events[i].documentation.name %>
+			<% } else if (query.signup === "true" || query.admin === "true"){ %>
+			  Documentation: click to <a href="/<%= address %>/addbardoc/<%= events[i]._id %>?signup=doc">signup</a>
+			<% } else { %>
+			Documentation: to be confirmed
+			<% } %>
+		</td>
+    </tr>
+</html>
