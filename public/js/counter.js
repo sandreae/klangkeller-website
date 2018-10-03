@@ -1,5 +1,3 @@
-<html>
-<%
 counter = function (eventDate, slotNumber, count){
 
 	Date.prototype.addDays = function(days) {
@@ -52,5 +50,3 @@ counter = function (eventDate, slotNumber, count){
     console.log("Countdown successful")
 	return countdown
 }
-%>
-</html>
