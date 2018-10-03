@@ -4,18 +4,19 @@
     var dateA = new Date(a.date);
     var dateB = new Date(b.date);
     return dateB - dateA;
-  }); %>
-  <% for(var i=0; i<events.length;i++) { %>
-  <% if(events[i].isRoaming === "true") { %>
-    <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
-    <% var count = 0 %>
-      <% for(var x=0; x<events[i].slotNumber;x++) { %>
-        <% if(events[i].slots[x].title != undefined) { %>
-        <% count++ %>
-        <% } %>
-      <% } %>
-    <% var countdown = counter(eventDate, events[i].slotNumber, count) 
-    console.log(countdown) %>
+  });
+  for(var i=0; i < events.length; i++) {
+    if(events[i].isRoaming === "true") {
+      var eventDate = events[i].date; 
+      var eventDate = eventDate.toDateString()
+      var count = 0
+      for(var x=0; x < events[i].slotNumber;x++) {
+        if(events[i].slots[x].title != undefined) {
+        count++ 
+      }
+    }
+    var countdown = counter(eventDate, events[i].slotNumber, count) 
+    %>
       <tr>
         <td>
           <span class="title"><b><%= events[i].klangkellerID%></b></span>
@@ -28,8 +29,8 @@
         </td>
       </tr>
 
-      <% for(var x=0; x<events[i].slotNumber;x++) { %>
-        <% if(events[i].slots[x].title != undefined) { %>
+      <% for(var x=0; x < events[i].slotNumber;x++) {
+        if(events[i].slots[x].title != undefined) { %>
           <tr>
             <td>
               ////////////////////////////<br>
@@ -96,8 +97,10 @@
               <button type="submit">DELETE</button>
             </form>
           <% } %>
-      <% } %>
-      <% } %>
-      </td>
-    </tr>
+        </td>
+      </tr>
+    <%
+    }
+} 
+%>
 </html>
