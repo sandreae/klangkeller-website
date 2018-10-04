@@ -1,10 +1,15 @@
 <html>
 <tr>
 	<td>
-	  <div id="mapid"></div>
+	  <div id="mymap" class="maps"></div>
 	  <script>
-	    var string = <%- JSON.stringify(events[i].venue) %>
+	  	var message = "<b>" + <%- JSON.stringify(events[i].klangkellerID) %> + ", " + <%- JSON.stringify(events[i].time) %>;
+	    var string = <%- JSON.stringify(events[i].venue) %>;
 	    var gps = string.split(','); 
+	    var id = <%- JSON.stringify(events[i].klangkellerID) %>;
+	    id = id.replace(/\s+/g, '');
+		var mymap = document.getElementById('mymap');
+		mymap.id = id;
 	  </script>
 	  <script type="text/javascript" src="/js/map.js"></script>
 	</td>

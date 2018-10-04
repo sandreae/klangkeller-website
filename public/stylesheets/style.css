@@ -121,7 +121,11 @@ button {
     cursor: pointer;
 }
 
-#mapid { 
+.maps { 
     height: 400px;
     width: 100%; 
   }
+
+.event-img {
+  width: 100%;
+}

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var event = require("../controllers/EventController.js");
-var eventType = "KLANGKELLER"
+var eventType = "KLANGKELLER Berlin"
 
 // Get all events
 router.get('/', function(req, res) {

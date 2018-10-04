@@ -26,7 +26,7 @@ var Event = new mongoose.Schema({
   },
   isFestival: false,
   isRoaming: false,
-  updated_at: { type: Date, default: Date.now },
+  updated_at: { type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model('Event', Event);

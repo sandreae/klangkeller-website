@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var event = require("../controllers/RoamingEventController.js");
-var eventType = "roaming"
+var eventType = "LONDON"
 
 
 // Get all events
