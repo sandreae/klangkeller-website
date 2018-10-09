@@ -6,8 +6,9 @@
   </tr>
   <script type="text/javascript">
 	var name = <%- JSON.stringify(events[i].klangkellerID) %>;
-	name = name.replace(/\s+/g, '');
-	var imgsrc = "/img/" + name + ".jpg"
+  name = name.replace(/\s+/g, '');
+	name = name.replace('#', '');
+	var imgsrc = "/img/yadorigi/" + name + ".jpg"
 	var img = document.getElementById('img');
 	img.id = name;
 	img.src = imgsrc;

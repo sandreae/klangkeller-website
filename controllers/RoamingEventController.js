@@ -32,7 +32,7 @@ eventController.save = function(req, res) {
     slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5},{slot: 6},{slot: 7},{slot: 8}],
     bar: {},
     isFestival: req.body.isFestival,
-    isRoaming: req.body.isRoaming
+    isRoaming: true
   });
   event.save(function(err) {
     if(err) {
@@ -68,7 +68,7 @@ eventController.update = function(req, res) {
     contact: req.body.contact,
     slotNumber: req.body.slotNumber,
     isFestival: req.body.isFestival,
-    isRoaming: req.body.isRoaming
+    isRoaming: true
   }}, { new: true }, function (err, event) {
     if (err) {
       console.log(err);
