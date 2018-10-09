@@ -10,14 +10,14 @@ eventController.list = function(req, res) {
     }
     else {
       console.log(events)
-      res.render("../views/roaming/index", {events: events, query: req.query});
+      res.render("../views/yadorigi/index", {events: events, query: req.query});
     }
   });
 };
 
 // Create new Event
 eventController.create = function(req, res) {
-  res.render("../views/roaming/create_roaming");
+  res.render("../views/yadorigi/create_roaming");
 };
 
 // Save new Event
@@ -37,11 +37,11 @@ eventController.save = function(req, res) {
   event.save(function(err) {
     if(err) {
       console.log(err);
-      res.render("../views/roaming/create_roaming");
+      res.render("../views/yadorigi/create_roaming");
     } else {
       console.log(event)
       console.log("Successfully created an event.");
-      res.redirect("/roaming?admin=true");
+      res.redirect("/yadorigi?admin=true");
     }
   });
 };
@@ -53,7 +53,7 @@ eventController.edit = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/roaming/edit_roaming", {event: event});
+      res.render("../views/yadorigi/edit_roaming", {event: event});
     }
   });
 };
@@ -72,10 +72,10 @@ eventController.update = function(req, res) {
   }}, { new: true }, function (err, event) {
     if (err) {
       console.log(err);
-      res.render("../views/roaming/edit_roaming", {event: req.body});
+      res.render("../views/yadorigi/edit_roaming", {event: req.body});
     }
     console.log(event)
-    res.redirect("/roaming/");
+    res.redirect("/yadorigi/");
   });
 };
 
@@ -86,7 +86,7 @@ eventController.addSlot = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/roaming/addslot_roaming", {event: event, query: req.query});
+      res.render("../views/yadorigi/addslot_roaming", {event: event, query: req.query});
     }
   });
 };
@@ -99,7 +99,7 @@ eventController.addBarDoc = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/roaming/savebardoc_roaming", {event: event, query: req.query});
+      res.render("../views/yadorigi/savebardoc_roaming", {event: event, query: req.query});
     }
   });
 };
@@ -117,7 +117,7 @@ eventController.saveDoc = function(req, res) {
         }
         else {
           console.log("Documentation updated");
-          res.redirect("/roaming");
+          res.redirect("/yadorigi");
         }
     }
   );
@@ -136,7 +136,7 @@ eventController.saveBar = function(req, res) {
         }
         else {
           console.log("Bar updated");
-          res.redirect("/roaming");
+          res.redirect("/yadorigi");
         }
     }
   );
@@ -160,7 +160,7 @@ eventController.saveSlot = function(req, res) {
         else {
           console.log("Slot updated");
           console.log(doc)
-          res.redirect("/roaming");
+          res.redirect("/yadorigi");
         }
     }
   );
@@ -174,7 +174,7 @@ eventController.delete = function(req, res) {
     }
     else {
       console.log("Event deleted!");
-      res.redirect("/roaming?admin=true");
+      res.redirect("/yadorigi?admin=true");
     }
   });
 };

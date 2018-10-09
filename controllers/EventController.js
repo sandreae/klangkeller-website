@@ -1,6 +1,5 @@
 var mongoose = require("mongoose");
 var Event = require("../models/Event");
-
 var eventController = {};
 
 // Show list of Events

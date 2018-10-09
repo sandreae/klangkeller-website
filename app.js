@@ -25,7 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/events', events);
 app.use('/documentation', documentation)
-app.use('/roaming', roaming_events)
+app.use('/yadorigi', roaming_events)
 
 app.listen(port, function() {
   console.log('Express server is up and running!');
