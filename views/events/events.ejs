@@ -10,7 +10,7 @@
   console.log(now)
 
   for(var i=0; i < events.length;i++) {
-    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && events[i].date > now) {
+    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && events[i].date >= now) {
 
       var address = "events"
       var eventDate = events[i].date; 
