@@ -1,12 +1,16 @@
+<!DOCTYPE html>
 <html>
   <% events.sort(function compare(a, b) {
     var dateA = new Date(a.date);
     var dateB = new Date(b.date);
-    return dateB - dateA;
+    return dateA - dateB;
   });
 
+  var now = new Date()
+  console.log(now)
+
   for(var i=0; i < events.length;i++) {
-    if(events[i].isFestival !== "true" && events[i].isRoaming !== true) {
+    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && events[i].date > now) {
 
       var address = "events"
       var eventDate = events[i].date; 
@@ -17,6 +21,7 @@
           count++ 
         }
       } 
+
       var countdown = counter(eventDate, events[i].slotNumber, count) %>
 
       <% include ../partials/event-title %>
@@ -28,4 +33,3 @@
       <% include ../partials/event-admin %>
       <% }} %>
 </html>
-

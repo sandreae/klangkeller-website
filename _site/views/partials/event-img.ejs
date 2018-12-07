@@ -1,0 +1,16 @@
+<html>
+  <tr>
+    <td>
+  	  <img class="event-img" id="img">
+    </td>
+  </tr>
+  <script type="text/javascript">
+	var name = <%- JSON.stringify(events[i].klangkellerID) %>;
+  name = name.replace(/\s+/g, '');
+	name = name.replace('#', '');
+	var imgsrc = "/img/yadorigi/" + name + ".jpg"
+	var img = document.getElementById('img');
+	img.id = name;
+	img.src = imgsrc;
+  </script>
+</html>

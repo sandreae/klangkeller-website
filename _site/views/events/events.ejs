@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <% events.sort(function compare(a, b) {
+    var dateA = new Date(a.date);
+    var dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+
+  for(var i=0; i < events.length;i++) {
+    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && events[i].date > site.date) {
+
+      var address = "events"
+      var eventDate = events[i].date; 
+      var eventDate = eventDate.toDateString()
+      var count = 0
+      for(var x=0; x < events[i].slotNumber;x++) {
+        if(events[i].slots[x].title != undefined) {
+          count++ 
+        }
+      } 
+
+      var countdown = counter(eventDate, events[i].slotNumber, count) %>
+
+      <% include ../partials/event-title %>
+      <% include ../partials/slots %>
+      <% include ../partials/documentation-slot %>
+      <% include ../partials/event-bar %>
+      <% include ../partials/event-contact %>
+      <% include ../partials/event-countdown %>
+      <% include ../partials/event-admin %>
+      <% }} %>
+</html>

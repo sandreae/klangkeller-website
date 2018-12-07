@@ -1,0 +1,134 @@
+.title {
+  font-size: 1.5em;
+}
+
+.description {
+  height: 60px;
+  width: 100%;
+}
+
+#about, #signup-info {
+  font-size: 0.9em;
+  position: inline-block;
+}
+
+.about {
+  margin: 10px;
+}
+
+.content {
+  margin: 10px;
+}
+
+.docu-content {
+  padding-top: 30px;
+  width: 100%;
+  margin: auto;
+}
+
+.about-img {
+  max-width: 100%;
+}
+
+.docu-title {
+  text-align: center;
+  width: 100%;
+}
+
+.docu-image {
+  max-width: 100%
+}
+
+.docu-object {
+  width: 100%;
+  max-width: 100%;
+  height: 100vh;
+}
+
+@media only screen and (min-width: 600px) {
+  #about, #signup-info {
+    font-size: 0.9em;
+  }
+
+  .title {
+    width: 45vw;
+  }
+
+  .docu-title {
+    width: 100%;
+    font-size: 1.5em;
+  }
+
+  .list-table {
+    width: 100%
+  }
+
+  .about {
+    width: 25vw;
+    position: absolute;
+    right: 0px;
+    top:10px;
+    margin: 10px;
+  }
+
+  .content {
+    width: 40vw;
+    margin: 10px;
+  }
+
+  .docu-content {
+    width: 60vw;
+    margin: auto;
+  }
+}
+
+input:invalid {
+  border: 2px dashed red;
+}
+
+input:valid {
+  border: 2px solid black;
+}
+
+.countdown-message {
+  color: red;
+  opacity: 0;
+  animation: blinking 1s linear infinite;
+}
+
+@keyframes blinking {
+  from,
+  30% {
+    opacity: 0;
+  }
+  30.1%,
+  to {
+    opacity: 1;
+  }
+}
+
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    padding: 10px 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.maps { 
+    height: 400px;
+    width: 100%; 
+  }
+
+.event-img {
+  width: 100%;
+}
+
+
+

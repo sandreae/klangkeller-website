@@ -1,0 +1,18 @@
+<html>
+<tr>
+	<td>
+	  <div id="mymap" class="maps"></div>
+	  <script>
+	  	var date = <%- JSON.stringify(events[i].date.toDateString()) %>;
+	  	var message = <%- JSON.stringify(events[i].time) %> + ", " + date  ;
+	    var string = <%- JSON.stringify(events[i].venue) %>;
+	    var gps = string.split(','); 
+	    var id = <%- JSON.stringify(events[i].klangkellerID) %>;
+	    id = id.replace(/\s+/g, '');
+		var mymap = document.getElementById('mymap');
+		mymap.id = id;
+	  </script>
+	  <script type="text/javascript" src="/js/map.js"></script>
+	</td>
+</tr>
+</html>

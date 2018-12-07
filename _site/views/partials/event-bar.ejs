@@ -1,0 +1,16 @@
+<html>
+  <tr>
+    <td>
+      ////////////////////////////<br>
+      <% if(query.signup === "true" || query.admin === "true") { %>
+        <% if( events[i].bar.name != undefined) { %>
+          Bar/Door Staff: <%= events[i].bar.name %>
+        <% } else { %>
+          Bar/Door Staff: click to <a href="/<%= address %>/addbardoc/<%= events[i]._id %>?signup=bar">signup</a>
+        <% } %>
+      <% } else { %>
+        Bar Staff: to be confirmed
+      <% } %>
+    </td>
+  </tr>
+</html>
