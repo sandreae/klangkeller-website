@@ -6,11 +6,14 @@
     return dateA - dateB;
   });
 
+  var future
   var now = new Date()
+  var now = now.addDays(-1)
   console.log(now)
 
   for(var i=0; i < events.length;i++) {
-    if(events[i].isFestival !== "true" && events[i].isRoaming !== true) {
+    future = now.getTime() <= events[i].date.getTime();
+    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && future == true) {
 
       var address = "events"
       var eventDate = events[i].date; 
