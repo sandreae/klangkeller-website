@@ -19,21 +19,34 @@
 
       for(var i=0; i<events.length;i++) { %>
         
-      <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
-      <div class="docu-content">
-        <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
-        <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
-        <b><%= eventDate %></b><br>
+        <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
+          <div class="docu-content">
+            <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
+            <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
+            <b><%= eventDate %></b><br>
+            <% for(var x=0; x<events[i].slotNumber;x++) { %>
+            ////////////////////////////<br>
+            <%= events[i].slots[x].title%><br>
+            <% } %>
+            <p>Documentation by: <%= events[i].documentation.name %></p>
+            <%- include("./" + events[i].klangkellerID); %>
+          </div>  
+        <% } %>
+          <div class="docu-content">
+            <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
+            <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
+            <b><%= eventDate %></b><br>
+            <% for(var x=0; x<events[i].slotNumber;x++) { %>
+            ////////////////////////////<br>
+            <%= events[i].slots[x].title%><br>
+            <% } %>
+            <p>Documentation by: <%= events[i].documentation.name %></p>
+            <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
+                <%- include("./" + events[i].klangkellerID); %>
+            <% } %>
+          </div>  
 
-        <% for(var x=0; x<events[i].slotNumber;x++) { %>
-        ////////////////////////////<br>
-        <%= events[i].slots[x].title%><br>
-        <% } %>
-        <p>Documentation by: <%= events[i].documentation.name %></p>
-        <%- include("./" + events[i].klangkellerID); %>
-        <% } %>
       <% } %>
-      </div>
     </div>
   </body>
 </html>
