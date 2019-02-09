@@ -17,8 +17,16 @@
         return dateB - dateA;
       });
 
-      for(var i=0; i<events.length;i++) { %>
+      var future
+      var today = new Date()
+      var days = 86400000
+      var yesterday = new Date(today - (1*days))  
+
+      for(var i=0; i<events.length;i++) { 
         
+        future = yesterday.getTime() <= events[i].date.getTime();
+        if(future !== true) { %>
+
           <div class="docu-content">
             <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
             <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
@@ -41,6 +49,7 @@
                 <%- include("./" + events[i].klangkellerID); %>
             <% } %>
           </div>  
+        <% } %>
         <% } %>
       <div class="docu-content">
 
