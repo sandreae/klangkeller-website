@@ -14,7 +14,7 @@
       events.sort(function compare(a, b) {
         var dateA = new Date(a.date);
         var dateB = new Date(b.date);
-        return dateA - dateB;
+        return dateB - dateA;
       });
 
       for(var i=0; i<events.length;i++) { %>
@@ -25,9 +25,18 @@
             <b><%= eventDate %></b><br>
             <% for(var x=0; x<events[i].slotNumber;x++) { %>
             ////////////////////////////<br>
-            <%= events[i].slots[x].title%><br>
+            <b><%= events[i].slots[x].title%></b><br>
+            <%= events[i].slots[x].duration%> minutes<br>
+            <%= events[i].slots[x].description%><br>
             <% } %>
-            <p>Documentation by: <%= events[i].documentation.name %></p>
+            <p><% if( events[i].documentation.name != undefined) { %>
+              ////////////////////////////<br>
+              Documentation: <%= events[i].documentation.name %>
+            <% } %></p>
+            <p><% if( events[i].bar.name != undefined) { %>
+              ////////////////////////////<br>  
+              Bar/Door Staff: <%= events[i].bar.name %>
+            <% } %></p>
             <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
                 <%- include("./" + events[i].klangkellerID); %>
             <% } %>
