@@ -32,11 +32,12 @@
             <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
             <b><%= eventDate %></b><br>
             <% for(var x=0; x<events[i].slotNumber;x++) { %>
+            <% if( events[i].slots[x].title != undefined) { %>
             ////////////////////////////<br>
-            <b><%= events[i].slots[x].title%></b><br>
+            <b><%= events[i].slots[x].title %></b><br>
             <%= events[i].slots[x].duration%> minutes<br>
             <%= events[i].slots[x].description%><br>
-            <% } %>
+            <% } %><% } %>
             <p><% if( events[i].documentation.name != undefined) { %>
               ////////////////////////////<br>
               Documentation: <%= events[i].documentation.name %>
