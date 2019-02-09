@@ -19,21 +19,44 @@
 
       for(var i=0; i<events.length;i++) { %>
         
-      <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
-      <div class="docu-content">
-        <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
-        <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
-        <b><%= eventDate %></b><br>
+          <div class="docu-content">
+            <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
+            <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
+            <b><%= eventDate %></b><br>
+            <% for(var x=0; x<events[i].slotNumber;x++) { %>
+            ////////////////////////////<br>
+            <%= events[i].slots[x].title%><br>
+            <% } %>
+            <p>Documentation by: <%= events[i].documentation.name %></p>
+            <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
+                <%- include("./" + events[i].klangkellerID); %>
+            <% } %>
+          </div>  
+          <div class="docu-content">
 
-        <% for(var x=0; x<events[i].slotNumber;x++) { %>
-        ////////////////////////////<br>
-        <%= events[i].slots[x].title%><br>
-        <% } %>
-        <p>Documentation by: <%= events[i].documentation.name %></p>
-        <%- include("./" + events[i].klangkellerID); %>
-        <% } %>
+            <span class="title"><b>2015 program</b><br></span>
+
+            #001 Laurie Tompkins and Susie Whaites
+
+            #002 Richard Scott, Lan Cao, Gregor Siedl and Adam Pultz Melbye
+
+            #003 Klaas Hübner, Laurie Tompkins and Susie Whaites
+
+            #004 Casey Moir, Gregor Siedl, Samuel Hall and Sam Weaver
+
+            #005 Dale Gorefinkel, Peter Farrar, Richard Scott and Julia Reidy
+
+            #006 Otto Willber, Mio Ebisu, Sam Andreae and Rogier Smal
+
+            #007 Julia Reidy, Laura Weber, Adam Pultz Melbye, Sam Andreae, Shasta Ellenbogen and Klaas Huebner
+
+            #008 Alexander Frangenheim, Niklas Fite, Sam Andreae, Vilhelm Bromander and IGNITE
+
+            #009 Andreas Dzialocha, Sam Andreae, NOR, Lan Cao
+
+            #010 Kelly Jayne Jones, Laura Weber, Christopher Jakobi, Mio Ebisu, Malte Kobel and Niklas Fite
+          </div>
       <% } %>
-      </div>
     </div>
   </body>
 </html>

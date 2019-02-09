@@ -19,19 +19,6 @@
 
       for(var i=0; i<events.length;i++) { %>
         
-        <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
-          <div class="docu-content">
-            <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
-            <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
-            <b><%= eventDate %></b><br>
-            <% for(var x=0; x<events[i].slotNumber;x++) { %>
-            ////////////////////////////<br>
-            <%= events[i].slots[x].title%><br>
-            <% } %>
-            <p>Documentation by: <%= events[i].documentation.name %></p>
-            <%- include("./" + events[i].klangkellerID); %>
-          </div>  
-        <% } %>
           <div class="docu-content">
             <span class="title"><b><%= events[i].klangkellerID%></b><br></span>
             <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
@@ -45,8 +32,32 @@
                 <%- include("./" + events[i].klangkellerID); %>
             <% } %>
           </div>  
+        <% } %>
+      <div class="docu-content">
 
-      <% } %>
+        <span class="title"><b>2015 program</b><br></span>
+
+        #001 Laurie Tompkins and Susie Whaites<br>
+
+        #002 Richard Scott, Lan Cao, Gregor Siedl and Adam Pultz Melbye<br>
+
+        #003 Klaas Hübner, Laurie Tompkins and Susie Whaites<br>
+
+        #004 Casey Moir, Gregor Siedl, Samuel Hall and Sam Weaver<br>
+
+        #005 Dale Gorefinkel, Peter Farrar, Richard Scott and Julia Reidy<br>
+
+        #006 Otto Willber, Mio Ebisu, Sam Andreae and Rogier Smal<br>
+
+        #007 Julia Reidy, Laura Weber, Adam Pultz Melbye, Sam Andreae, Shasta Ellenbogen and Klaas Huebner<br>
+
+        #008 Alexander Frangenheim, Niklas Fite, Sam Andreae, Vilhelm Bromander and IGNITE<br>
+
+        #009 Andreas Dzialocha, Sam Andreae, NOR, Lan Cao<br>
+
+        #010 Kelly Jayne Jones, Laura Weber, Christopher Jakobi, Mio Ebisu, Malte Kobel and Niklas Fite<br>
+      </div>
+
     </div>
   </body>
 </html>

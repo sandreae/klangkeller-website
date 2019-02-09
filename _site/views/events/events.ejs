@@ -3,11 +3,17 @@
   <% events.sort(function compare(a, b) {
     var dateA = new Date(a.date);
     var dateB = new Date(b.date);
-    return dateB - dateA;
+    return dateA - dateB;
   });
 
+  var future
+  var today = new Date()
+  var days = 86400000
+  var yesterday = new Date(today - (1*days))  
+
   for(var i=0; i < events.length;i++) {
-    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && events[i].date > site.date) {
+    future = yesterday.getTime() <= events[i].date.getTime();
+    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && future === true) {
 
       var address = "events"
       var eventDate = events[i].date; 
