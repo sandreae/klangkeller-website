@@ -7,27 +7,26 @@
   }); %>
   <% for(var i=0; i<events.length;i++) { %>
   <% if(events[i].isFestival === "true") { %>
-  <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
-  <% var count = 0 %>
-    <% for(var x=0; x<events[i].slotNumber;x++) { %>
-      <% if(events[i].slots[x].title != undefined) { %>
-      <% count++ %>
-      <% } %>
-    <% } %>
-  <% var countdown = counter(eventDate, events[i].slotNumber, count) 
-  console.log(countdown) %>
-    <tr>
-      <td>
-        <span class="title"><b><%= events[i].klangkellerID%></b></span>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <b><%= eventDate %><br>
-        <%= events[i].time%> in the <%= events[i].venue%></b>
-      </td>
-    </tr>
-
+    <% var eventDate = events[i].date; var eventDate = eventDate.toDateString() %>
+      <% var count = 0 %>
+        <% for(var x=0; x<events[i].slotNumber;x++) { %>
+          <% if(events[i].slots[x].title != undefined) { %>
+          <% count++ %>
+          <% } %>
+        <% } %>
+      <% var countdown = counter(eventDate, events[i].slotNumber, count) 
+      console.log(countdown) %>
+        <tr>
+          <td>
+            <span class="title"><b><%= events[i].klangkellerID%></b></span>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <b><%= eventDate %><br>
+            <%= events[i].time%> in the <%= events[i].venue%></b>
+          </td>
+        </tr>
     <% for(var x=0; x<events[i].slotNumber;x++) { %>
       <% if(events[i].slots[x].title != undefined) { %>
         <tr>
