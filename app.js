@@ -10,7 +10,7 @@ var roaming_events = require('./routes/roaming_events');
 var documentation = require('./routes/documentation');
 
 var port = process.env.PORT || 3000
-var promise = mongoose.connect(process.env.MONGODB_URI  ||  'mongodb://localhost/event', {
+var promise = mongoose.connect(process.env.MONGODB_URI  ||  'mongodb://mongo:27017/klangkeller', {
   useMongoClient: true,
 });
 
@@ -30,4 +30,3 @@ app.use('/yadorigi', roaming_events)
 app.listen(port, function() {
   console.log('Express server is up and running!');
 });
-
