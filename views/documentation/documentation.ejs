@@ -49,10 +49,10 @@
               ////////////////////////////<br>  
               Bar/Door Staff: <%= events[i].bar.name %>
             <% } %></p>
-            <% if (fs.existsSync("./views/documentation/" + events[i].klangkellerID + ".ejs")) { %>
+            <% if (events[i].isDocumented) { %>
                 <%- include("./" + events[i].klangkellerID); %>
             <% } %>
-          </div>  
+          </div>
         <% } %>
         <% } %>
       <div class="docu-content">

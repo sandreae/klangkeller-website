@@ -10,7 +10,15 @@ docuController.list = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/documentation/documentation", {events: events, fs: fs});
+      events = events.map(event => {
+        if(fs.existsSync("./views/documentation/" + event.klangkellerID + ".ejs")){
+          event.isDocumented = true;
+        } else {
+          event.isDocumented = false;
+        }
+        return event
+      })
+      res.render("../views/documentation/documentation", {events: events});
     }
   });
 };
