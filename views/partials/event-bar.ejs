@@ -3,7 +3,7 @@
     <td>
       ////////////////////////////<br>
       <% if(query.signup === "true" || query.admin === "true") { %>
-        <% if( event.bar.name != undefined) { %>
+        <% if( event.bar != undefined) { %>
           Bar/Door Staff: <%= event.bar.name %>
         <% } else { %>
           Bar/Door Staff: click to <a href="/events/addbardoc/<%= event._id %>?signup=bar">signup</a>

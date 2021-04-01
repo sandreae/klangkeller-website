@@ -2,6 +2,7 @@ lint nodejs code
 calendar picker for date
 make template from KK site
 many env / path variables for configuration
+use middleware for view logic
 
 DONE
 fallback "no events programmed" text

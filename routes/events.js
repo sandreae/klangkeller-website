@@ -3,9 +3,7 @@ var router = express.Router();
 var event = require("../controllers/EventController.js");
 
 // Get all events
-router.get('/', function(req, res) {
-  event.list(req, res);
-});
+router.get('/', event.getEvents, event.processEvents, event.list);
 
 // Create event
 router.get('/create', function(req, res) {

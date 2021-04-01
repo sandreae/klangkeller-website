@@ -2,7 +2,7 @@
     <tr>
         <td>
           ////////////////////////////<br>
-			<% if( event.documentation.name != undefined) { %>
+			<% if( event.documentation != undefined) { %>
 			  Documentation: <%= event.documentation.name %>
 			<% } else if (query.signup === "true" || query.admin === "true"){ %>
 			  Documentation: click to <a href="/events/addbardoc/<%= event._id %>?signup=doc">signup</a>

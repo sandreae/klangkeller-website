@@ -3,16 +3,101 @@ var Event = require("../models/Event");
 var eventController = {};
 
 // Show list of Events
-eventController.list = function(req, res) {
+eventController.getEvents = function (req, res, next) {
+  // fetch all events and return as plain JS object
   Event.find({}).exec(function (err, events) {
     if (err) {
       console.log("Error:", err);
     }
     else {
       console.log(events)
-      res.render("../views/events/index", {events: events, query: req.query});
+      res.events = events
+
+      next();
     }
   });
+};
+
+eventController.processEvents = function (req, res, next){
+  let events = res.events
+  
+  // sort events by date order
+  events.sort(function compare(a, b) {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateA - dateB;
+    });
+  
+  // calculate future events
+  const today = new Date()
+  const oneDay = 86400000
+  const yesterday = new Date(today - (1*oneDay))  
+
+  let futureEvents = events.filter(event => yesterday.getTime() <= event.date.getTime());
+  
+  // generate event countdown
+  res.futureEvents = futureEvents.map(event => {
+    event = event.toObject()
+    let eventDate = event.date.toDateString()
+    let count = 0
+    for(var x=0; x < event.slotNumber;x++) {
+      if(event.slots[x].title != undefined) {
+        count++ 
+      }
+    }
+
+    Date.prototype.addDays = function(oneDay) {
+        var dat = new Date(this.valueOf());
+        dat.setDate(dat.getDate() + oneDay);
+        return dat;
+    }
+    
+    let message, signupDate
+    let countdown = {}
+    let slotsLeft = event.slotNumber - count
+
+    const now = new Date()
+    eventDate = new Date(eventDate)
+
+    if (slotsLeft >= 3) {signupDate = eventDate.addDays(-32)}
+    if (slotsLeft === 2) {signupDate = eventDate.addDays(-7)}
+    if (slotsLeft === 1) {signupDate = eventDate.addDays(-1)}
+
+    var mil = signupDate - now 
+    var seconds = (mil / 1000) | 0;
+    mil -= seconds * 1000;
+
+    var minutes = (seconds / 60) | 0;
+    seconds -= minutes * 60;
+
+    var hours = (minutes / 60) | 0;
+    minutes -= hours * 60;
+
+    var days = (hours / 24) | 0;
+    hours -= days * 24;
+
+    var weeks = (days / 7) | 0;
+    days -= weeks * 7; 
+
+    if (slotsLeft === 0){message = "sorry, this event is full"; signupLink = false} else {
+        message = "next signup in " + weeks + " weeks, " + days + " days and " + hours + " hours.";
+        signupLink = false
+    }
+
+    if (mil <= 0) {message = "sign-up now!"; signupLink = true}
+
+    countdown.message = message
+    countdown.signupLink = signupLink
+    event.countdown = countdown
+    return event
+  })
+  console.log(res.futureEvents)
+  next();
+};
+
+// Show list of Events
+eventController.list = function(req, res) {
+  res.render("../views/events/index", {events: res.events, futureEvents: res.futureEvents, query: req.query});
 };
 
 // Create new Event

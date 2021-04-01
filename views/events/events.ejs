@@ -1,39 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <% events.sort(function compare(a, b) {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateA - dateB;
-  });
-
-  const today = new Date()
-  const days = 86400000
-  const yesterday = new Date(today - (1*days))  
-
-  const futureEvents = events.filter(event => yesterday.getTime() <= event.date.getTime());
-  
+  <%  
   if (futureEvents.length === 0){
     return "There are no events programmed, see our documentation page for past events"
   }
   
   for(let i=0; i < futureEvents.length;i++) {
-      const event = events[i]
-      const eventDate = event.date.toDateString()
-      let count = 0
-      for(var x=0; x < event.slotNumber;x++) {
-        if(event.slots[x].title != undefined) {
-          count++ 
-        }
-      } 
-      const countdown = counter(eventDate, event.slotNumber, count) 
+      const event = futureEvents[i]
       %>
        
       <%- include('../partials/event-title', {event}) %>
-      <%- include('../partials/slots', {event, countdown}) %>
+      <%- include('../partials/slots', {event}) %>
       <%- include('../partials/documentation-slot', {event}) %>
       <%- include('../partials/event-bar', {event}) %>
       <%- include('../partials/event-contact', {event}) %>
-      <%- include('../partials/event-countdown', {countdown}) %>
+      <%- include('../partials/event-countdown', {event}) %>
       <%- include('../partials/event-admin', {event}) %>
       <% } %>
 </html>
