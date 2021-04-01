@@ -13,7 +13,7 @@
 
   for(var i=0; i < events.length;i++) {
     future = yesterday.getTime() <= events[i].date.getTime();
-    if(events[i].isFestival !== "true" && future === true) {
+    if(future === true) {
 
       var eventDate = events[i].date; 
       var eventDate = eventDate.toDateString()
