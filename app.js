@@ -9,9 +9,7 @@ var events = require('./routes/events');
 var documentation = require('./routes/documentation');
 
 var port = process.env.PORT || 3000
-var promise = mongoose.connect(process.env.MONGO_URL  ||  'mongodb://mongo:27017/klangkeller', {
-  useMongoClient: true,
-});
+var promise = mongoose.connect(process.env.MONGO_URL  ||  'mongodb://mongo:27017/klangkeller');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
