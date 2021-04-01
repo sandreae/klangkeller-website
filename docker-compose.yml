@@ -4,9 +4,11 @@ services:
     build: .
     restart: always
     ports:
-      - '8888:3000'
+      - '3000:3000'
     external_links:
       - mongo
+    environment: 
+      - MONGO_URL=mongodb://mongo:27017/klangkeller
   mongo:
     image: mongo
     ports:
