@@ -1,0 +1,26 @@
+<% 
+	slotDurations = function(event){
+		const defaultSlotTimes = ['5', '20', '42']
+		const remainingSlotTimes = []
+		const eventSlots = event.slots
+		let options = ''
+
+		for(let i=0; i < event.slotNumber; i++) {
+			const index = i % defaultSlotTimes.length
+			remainingSlotTimes.push(defaultSlotTimes[index])
+		}
+		
+		eventSlots.forEach(function(slot){
+			if (slot.duration !== null) {
+				const index = remainingSlotTimes.indexOf(slot.duration);
+				remainingSlotTimes.splice(index, 1)
+			}
+		});
+
+		remainingSlotTimes.forEach(function(time){
+			const option = '<option value="' + time + '">' + time + ' min</option>';
+			options += option
+		})
+		return options
+	} 
+%>

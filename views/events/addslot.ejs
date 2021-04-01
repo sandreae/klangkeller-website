@@ -28,10 +28,9 @@
                 <td>Duration (in minutes)</td>
                 <td>
                 <select name="duration" form="event" required>
-                  <option value="5">5</option>
-                  <option value="20">20</option>
-                  <option value="42">42</option>
-                </select>
+                    <% include ../partials/slotdurations %>
+                    <%- slotDurations(event) %>
+                  </select>
               </td>
               </tr>
               <tr>
