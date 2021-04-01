@@ -9,6 +9,9 @@ services:
       - mongo
     environment: 
       - MONGO_URL=mongodb://mongo:27017/klangkeller
+    volumes:
+      - ./:/usr/src/app
+    entrypoint: ["npm", "run", "dev"]
   mongo:
     image: mongo
     ports:
