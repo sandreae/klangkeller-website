@@ -5,11 +5,13 @@
 		const eventSlots = event.slots
 		let options = ''
 
+		// populate remainingSlotTimes with all potential slots 
 		for(let i=0; i < event.slotNumber; i++) {
 			const index = i % defaultSlotTimes.length
 			remainingSlotTimes.push(defaultSlotTimes[index])
 		}
 		
+		// remove already booked slots 
 		eventSlots.forEach(function(slot){
 			if (slot.duration !== null) {
 				const index = remainingSlotTimes.indexOf(slot.duration);
@@ -17,6 +19,7 @@
 			}
 		});
 
+		// build options html string 
 		remainingSlotTimes.forEach(function(time){
 			const option = '<option value="' + time + '">' + time + ' min</option>';
 			options += option
