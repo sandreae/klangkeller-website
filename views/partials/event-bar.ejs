@@ -3,10 +3,10 @@
     <td>
       ////////////////////////////<br>
       <% if(query.signup === "true" || query.admin === "true") { %>
-        <% if( events[i].bar.name != undefined) { %>
-          Bar/Door Staff: <%= events[i].bar.name %>
+        <% if( event.bar.name != undefined) { %>
+          Bar/Door Staff: <%= event.bar.name %>
         <% } else { %>
-          Bar/Door Staff: click to <a href="/<%= address %>/addbardoc/<%= events[i]._id %>?signup=bar">signup</a>
+          Bar/Door Staff: click to <a href="/events/addbardoc/<%= event._id %>?signup=bar">signup</a>
         <% } %>
       <% } else { %>
         Bar Staff: to be confirmed

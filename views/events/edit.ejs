@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container">
-      <% include ../partials/title %>
+      <%- include('../partials/title') %>
       <h2>Edit Event</h2>
       <form action="/events/update/<%= event._id %>" method="post" id="event">
         <table>

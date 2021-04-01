@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <% include ../partials/title %>        
+      <%- include('../partials/title') %>        
       <div class="sub-title">
       <h2><%= event.klangkellerID %><br><%= eventDate %><br>sign-up</h2>
       </div>
@@ -28,7 +28,7 @@
                 <td>Duration (in minutes)</td>
                 <td>
                 <select name="duration" form="event" required>
-                    <% include ../partials/slotdurations %>
+                    <%- include('../partials/slotdurations') %>
                     <%- slotDurations(event) %>
                   </select>
               </td>
@@ -44,7 +44,7 @@
       </form>
     </div>
     <div class="about">
-      <% include ../partials/signup-info %>
+      <%- include('../partials/signup-info') %>
     </div>
     </div>
   </body>

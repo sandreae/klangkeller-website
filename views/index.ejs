@@ -12,13 +12,13 @@
       </div>
       <div class="about">
       <% if(query.signup === "true") { %>
-        <% include ./partials/signup-info %>
+        <%- include('partials/signup-info') %>
       <% } else { %>
-        <% include ./partials/about %>
+        <%- include('partials/about') %>
       <% } %>
     </div>
     <div class="content">
-      <% include ./events/list %>
+      <%- include('events/list') %>
       <% if(query.admin === "true") { %>
         <a href="/events/create">Create Event</a>
       <% } %>

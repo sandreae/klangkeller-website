@@ -2,8 +2,8 @@
   <tr>
     <td>
       <% if(query.admin === "true") { %>
-        <a href="/<%= address %>/edit/<%= events[i]._id%>">edit event</a>
-        <form action="/<%= address %>/delete/<%= events[i]._id%>" method="post">
+        <a href="/events/edit/<%= event._id%>">edit event</a>
+        <form action="/events/delete/<%= event._id%>" method="post">
           <button type="submit">DELETE</button>
         </form>
       <% } %>

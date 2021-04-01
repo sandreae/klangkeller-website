@@ -15,7 +15,6 @@
     future = yesterday.getTime() <= events[i].date.getTime();
     if(events[i].isFestival !== "true" && future === true) {
 
-      var address = "events"
       var eventDate = events[i].date; 
       var eventDate = eventDate.toDateString()
       var count = 0
@@ -25,14 +24,16 @@
         }
       } 
 
-      var countdown = counter(eventDate, events[i].slotNumber, count) %>
-
-      <% include ../partials/event-title %>
-      <% include ../partials/slots %>
-      <% include ../partials/documentation-slot %>
-      <% include ../partials/event-bar %>
-      <% include ../partials/event-contact %>
-      <% include ../partials/event-countdown %>
-      <% include ../partials/event-admin %>
+      var countdown = counter(eventDate, events[i].slotNumber, count) 
+      var event = events[i]
+      %>
+       
+      <%- include('../partials/event-title', {event}) %>
+      <%- include('../partials/slots', {event, countdown}) %>
+      <%- include('../partials/documentation-slot', {event}) %>
+      <%- include('../partials/event-bar', {event}) %>
+      <%- include('../partials/event-contact', {event}) %>
+      <%- include('../partials/event-countdown', {countdown}) %>
+      <%- include('../partials/event-admin', {event}) %>
       <% }} %>
 </html>

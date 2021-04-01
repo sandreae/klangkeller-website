@@ -1,20 +1,20 @@
 <html>
-  <% for(var x=0; x < events[i].slotNumber;x++) {
-    if(events[i].slots[x].title != undefined) { %>
+  <% for(var x=0; x < event.slotNumber;x++) {
+    if(event.slots[x].title != undefined) { %>
       <tr>
         <td>
           ////////////////////////////<br>
-          <b><%= events[i].slots[x].title%></b>
+          <b><%= event.slots[x].title%></b>
         </td>
       </tr>
       <tr>
         <td>
-          <%= events[i].slots[x].duration%> minutes
+          <%= event.slots[x].duration%> minutes
         </td>
       </tr>
       <tr>
         <td>
-          <%= events[i].slots[x].description%>
+          <%= event.slots[x].description%>
         </td>
       </tr>
     <% } else { %>
@@ -22,7 +22,7 @@
       <td>
         ////////////////////////////<br>
         <% if(query.signup === "true" && countdown.signupLink === true) { %>
-          click to <a href="/<%= address %>/addslot/<%= events[i]._id %>?slot=<%= events[i].slots[x]._id %>">signup</a>
+          click to <a href="/events/addslot/<%= event._id %>?slot=<%= event.slots[x]._id %>">signup</a>
         <% } else { %>
           program to be confirmed
         <% } %>

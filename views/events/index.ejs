@@ -7,16 +7,16 @@
   </head>
   <body>
     <div class="container">
-    <% include ../partials/title %>
+    <%- include('../partials/title') %>
       <div class="about">
       <% if(query.signup === "true") { %>
-        <% include ../partials/signup-info %>
+        <%- include('../partials/signup-info') %>
       <% } else { %>
-        <% include ../partials/about %>
+        <%- include('../partials/about') %>
       <% } %>
     </div>
     <div class="content">
-      <% include ./list %>
+      <%- include('list') %>
       <% if(query.admin === "true") { %>
         <a href="/events/create">Create Event</a>
       <% } %>
