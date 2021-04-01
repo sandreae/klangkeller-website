@@ -13,7 +13,7 @@
 
   for(var i=0; i < events.length;i++) {
     future = yesterday.getTime() <= events[i].date.getTime();
-    if(events[i].isFestival !== "true" && events[i].isRoaming !== true && future === true) {
+    if(events[i].isFestival !== "true" && future === true) {
 
       var address = "events"
       var eventDate = events[i].date; 
