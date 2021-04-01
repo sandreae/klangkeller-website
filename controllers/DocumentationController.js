@@ -13,7 +13,7 @@ docuController.list = function(req, res) {
     }
     return event
   })
-  res.render("../views/documentation/documentation", {events: events});
+  res.render("../views/documentation/documentation", {events: events, title: res.title});
 };
 
 module.exports = docuController;

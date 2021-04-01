@@ -11,6 +11,8 @@ var documentation = require('./routes/documentation');
 var port = process.env.PORT || 3000
 var promise = mongoose.connect(process.env.MONGO_URL  ||  'mongodb://mongo:27017/klangkeller');
 
+const TITLE="s10c"
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -19,6 +21,10 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use((req, res, next) => {
+  res.title = TITLE
+  next()
+})
 app.use('/', index);
 app.use('/events', events);
 app.use('/documentation', documentation)
