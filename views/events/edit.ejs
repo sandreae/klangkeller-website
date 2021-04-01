@@ -6,7 +6,6 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script> 
       document.addEventListener("DOMContentLoaded", function(event) {
-      console.log("<%= event.isFestival %>")
       document.getElementById("isFestival").value = "<%= event.isFestival %>"
       document.getElementById("slotNumber").value = "<%= event.slotNumber %>"
       document.getElementById("venue").value = "<%= event.venue %>"

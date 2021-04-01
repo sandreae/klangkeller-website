@@ -12,15 +12,11 @@ counter = function (eventDate, slotNumber, count){
 	var slotsLeft = slotNumber - count
 
 	var now = new Date()
-	console.log(eventDate)
 	eventDate = new Date(eventDate)
 
 	if (slotsLeft >= 3) {signupDate = eventDate.addDays(-32)}
 	if (slotsLeft === 2) {signupDate = eventDate.addDays(-7)}
 	if (slotsLeft === 1) {signupDate = eventDate.addDays(-1)}
-
-	console.log(signupDate)
-	console.log(eventDate)
 
 	var mil = signupDate - now 
 	var seconds = (mil / 1000) | 0;
@@ -47,6 +43,5 @@ counter = function (eventDate, slotNumber, count){
 
 	countdown.message = message
     countdown.signupLink = signupLink
-    console.log("Countdown successful")
 	return countdown
 }
