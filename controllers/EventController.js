@@ -89,12 +89,12 @@ eventController.processEvents = function (req, res, next){
 
 // Show list of Events
 eventController.list = function(req, res) {
-  res.render("../views/events/index", {events: res.events, futureEvents: res.futureEvents, query: req.query, title: res.title});
+  res.render("../views/events/index", {events: res.events, futureEvents: res.futureEvents, query: req.query, options: res.options});
 };
 
 // Create new Event
 eventController.create = function(req, res) {
-  res.render("../views/events/create", {title: res.title});
+  res.render("../views/events/create", {options: res.options});
 };
 
 // Save new Event
@@ -113,7 +113,7 @@ eventController.save = function(req, res) {
   event.save(function(err) {
     if(err) {
       console.log(err);
-      res.render("../views/events/create", {title: res.title});
+      res.render("../views/events/create", {options: res.options});
     } else {
       console.log(event)
       console.log("Successfully created an event.");
@@ -129,7 +129,7 @@ eventController.edit = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/events/edit", {event: event, title: res.title});
+      res.render("../views/events/edit", {event: event, options: res.options});
     }
   });
 };
@@ -161,7 +161,7 @@ eventController.addSlot = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/events/addslot", {event: event, query: req.query, title: res.title});
+      res.render("../views/events/addslot", {event: event, query: req.query, options: res.options});
     }
   });
 };
@@ -174,7 +174,7 @@ eventController.addBarDoc = function(req, res) {
       console.log("Error:", err);
     }
     else {
-      res.render("../views/events/savebardoc", {event: event, query: req.query, title: res.title});
+      res.render("../views/events/savebardoc", {event: event, query: req.query, options: res.options});
     }
   });
 };

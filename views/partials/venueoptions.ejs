@@ -1,0 +1,9 @@
+<%
+venueOptions = function(venues){
+let optionsString = ''
+venues.forEach(venue => {
+  const option = '<option value="' + venue + '">' + venue + '</option>';
+  optionsString += option
+})
+return optionsString}
+%>

@@ -1,0 +1,9 @@
+<%
+memberOptions = function(members){
+let optionsString = ''
+members.forEach(member => {
+  const option = '<option value="' + member.email + '">' + member.name + '</option>';
+  optionsString += option
+})
+return optionsString}
+%>

@@ -53,22 +53,17 @@
               <td>Venue</td>
               <td>
                 <select name="venue" form="event" required value="kino">
-                  <option value="kino">Kino</option>
-                  <option value="keller">Keller</option>
-                  <option value="ĥof">Hof</option>
-                </select>
+                  <% include('../partials/venueoptions') %>
+                  <%- venueOptions(options.venues) %>
+                  </select>
               </td>
             </tr>
             <tr>
               <td>Main organiser</td>
               <td>
                 <select name="contact" form="event" required>
-                  <option value="klaas[at]klangkeller.net">Klaas</option>
-                  <option value="mio[at]klangkeller.net">Mio</option>
-                  <option value="neo[at]klangkeller.net">Neo</option>
-                  <option value="sam[at]klangkeller.net">Sam</option>
-                  <option value="aziz[at]klangkeller.net">Aziz</option>
-                  <option value="chris[at]klangkeller.net">Chris</option>
+                  <% include('../partials/memberoptions') %>
+                  <%- memberOptions(options.members) %>
                 </select>
               </td>
             </tr>
