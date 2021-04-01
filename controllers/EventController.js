@@ -5,7 +5,7 @@ var eventController = {};
 // Show list of Events
 eventController.getEvents = function (req, res, next) {
   // fetch all events and return as plain JS object
-  Event.find({}).exec(function (err, events) {
+  Event.find({}).sort({'date': 'asc'}).exec(function (err, events) {
     if (err) {
       console.log("Error:", err);
     }
@@ -19,21 +19,13 @@ eventController.getEvents = function (req, res, next) {
 };
 
 eventController.processEvents = function (req, res, next){
-  let events = res.events
-  
-  // sort events by date order
-  events.sort(function compare(a, b) {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateA - dateB;
-    });
-  
+        
   // calculate future events
   const today = new Date()
   const oneDay = 86400000
   const yesterday = new Date(today - (1*oneDay))  
 
-  let futureEvents = events.filter(event => yesterday.getTime() <= event.date.getTime());
+  let futureEvents = res.events.filter(event => yesterday.getTime() <= event.date.getTime());
   
   // generate event countdown
   res.futureEvents = futureEvents.map(event => {

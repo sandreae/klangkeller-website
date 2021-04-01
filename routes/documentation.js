@@ -1,9 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var docu = require("../controllers/DocumentationController.js");
+var event = require("../controllers/EventController.js");
 
-router.get('/', function(req, res) {
-  docu.list(req, res);
-});
+router.get('/', event.getEvents, event.processEvents, docu.list);
 
 module.exports = router;
