@@ -9,12 +9,15 @@ var events = require('./routes/events');
 var documentation = require('./routes/documentation');
 
 var config = require('config').get('Site');
-var port = process.env.PORT || 3000
-var promise = mongoose.connect(process.env.MONGO_URL  ||  'mongodb://mongo:27017/klangkeller', { useNewUrlParser: true,  useUnifiedTopology: true  });
 
+const DB_URL=config.get('dbString');
 const TITLE=config.get('title');
 const VENUES=config.get('venues');
 const MEMBERS=config.get('organisers');
+
+var port = process.env.PORT || 3000
+// config.get('dbString') is set via environment variable MONGO_URL
+mongoose.connect(DB_URL ||  'mongodb://mongo:27017/klangkeller', { useNewUrlParser: true,  useUnifiedTopology: true  });
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
