@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign-up</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
+  </head>
+  <body>
+    <div class="container">
+      <%- include('../partials/title') %>        
+      <div class="sub-title">
+      <h2><%= event.klangkellerID %><br><%= eventDate %><br>sign-up</h2>
+      </div>
+    <div class="content">
+      <form id="event" action="/events/saveexhibit/<%= event._id%>" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <td>Title</td>
+              <td><input type="text" name="title" required/></td>
+              </tr>
+              <tr>
+                <td>Description</td>
+                <td><textarea name="description" form="event" class="description"></textarea></td>
+              </tr>
+              <tr>
+                <td>Contact email</td>
+                <td><input type="email" name="contact" required/></td>
+              </tr>
+              <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="about">
+      <%- include('../partials/signup-info') %>
+    </div>
+    </div>
+  </body>
+</html>

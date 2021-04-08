@@ -1,0 +1,28 @@
+<html>  
+    <% if(!event.hasExhibit) { %>
+        <tr><td></td></tr>
+    <% } else if (event.exhibit) { %>    
+        <tr>
+            <td>
+                ////////////////////////////<br>
+                <b><%= event.exhibit.title%></b>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= event.exhibit.description%>
+            </td>
+        </tr>
+    <% } else { %>
+        <tr>
+            <td>
+                ////////////////////////////<br>
+                <% if(query.signup === "true" && event.countdown.signupLink === true) { %>
+                    Exhibit slot: click to <a href="/events/addexhibit/<%= event._id %>">signup</a>
+                <% } else { %>
+                    Exhibit to be confirmed
+                <% } %>
+            </td>
+        </tr>
+    <% } %>
+</html>

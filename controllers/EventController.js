@@ -105,10 +105,12 @@ eventController.save = function(req, res) {
     time: req.body.time,
     venue: req.body.venue,
     contact: req.body.contact,
+    exhibit: req.body.exhibit,
     slotNumber: req.body.slotNumber,
     slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5},{slot: 6},{slot: 7},{slot: 8}],
     bar: {},
-    isFestival: req.body.isFestival
+    isFestival: req.body.isFestival,
+    hasExhibit: req.body.hasExhibit
   });
   event.save(function(err) {
     if(err) {
@@ -143,7 +145,8 @@ eventController.update = function(req, res) {
     venue: req.body.venue,
     contact: req.body.contact,
     slotNumber: req.body.slotNumber,
-    isFestival: req.body.isFestival
+    isFestival: req.body.isFestival,
+    hasExhibit: req.body.hasExhibit
   }}, { new: true }, function (err, event) {
     if (err) {
       console.log(err);
@@ -162,6 +165,18 @@ eventController.addSlot = function(req, res) {
     }
     else {
       res.render("../views/events/addslot", {event: event, query: req.query, options: res.options, content: res.content});
+    }
+  });
+};
+
+// add a exhibit
+eventController.addExhibit = function(req, res) {
+  Event.findOne({_id: req.params.id}).exec(function (err, event) {
+    if (err) {
+      console.log("Error:", err);
+    }
+    else {
+      res.render("../views/events/addexhibit", {event: event, query: req.query, options: res.options, content: res.content});
     }
   });
 };
@@ -235,6 +250,26 @@ eventController.saveSlot = function(req, res) {
         else {
           console.log("Slot updated");
           console.log(doc)
+          res.redirect("/events");
+        }
+    }
+  );
+};
+
+// save exhibit
+eventController.saveExhibit = function(req, res) {
+  Event.findByIdAndUpdate(req.params.id,
+    { $set: {
+      "exhibit.title": req.body.title,
+      "exhibit.description": req.body.description,
+      "exhibit.contact": req.body.contact
+    }},
+      function(err,doc) {
+        if(err) {
+          console.log(err);
+        }
+        else {
+          console.log("Exhibit updated");
           res.redirect("/events");
         }
     }

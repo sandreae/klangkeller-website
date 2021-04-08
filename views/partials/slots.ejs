@@ -22,9 +22,9 @@
       <td>
         ////////////////////////////<br>
         <% if(query.signup === "true" && event.countdown.signupLink === true) { %>
-          click to <a href="/events/addslot/<%= event._id %>?slot=<%= event.slots[x]._id %>">signup</a>
+          Live slot: click to <a href="/events/addslot/<%= event._id %>?slot=<%= event.slots[x]._id %>">signup</a>
         <% } else { %>
-          program to be confirmed
+          Performance to be confirmed
         <% } %>
       </td>
     </tr>

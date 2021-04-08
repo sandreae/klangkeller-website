@@ -34,7 +34,7 @@
             </tr>
             <tr>
               <td>Date</td>
-              <td><input type="date" name="date" required value="<%= new Date(event.date).toISOString() %>"/></td>
+              <td><input type="date" name="date" required value="<%= new Date(event.date).toISOString().slice(0, 10) %>"/></td>
             </tr>
             <tr>
               <td>Time</td>
@@ -61,6 +61,15 @@
                   <option value="6">6</option>
                   <option value="7">7</option>
                   <option value="8">8</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>Will this event have an exhibition?</td>
+              <td>
+                <select name="hasExhibit" form="event" required value="false">
+                  <option value="false">No</option>
+                  <option value="true">Yes</option>
                 </select>
               </td>
             </tr>
