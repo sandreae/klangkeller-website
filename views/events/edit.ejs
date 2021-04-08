@@ -34,11 +34,11 @@
             </tr>
             <tr>
               <td>Date (yyyy-mm-dd)</td>
-              <td><input type="datetime" name="date" required value="<%= event.date %>"/></td>
+              <td><input type="date" name="date" required value="<%= new Date(event.date).toISOString() %>"/></td>
             </tr>
             <tr>
               <td>Time</td>
-              <td><input type="text" name="time" required value="<%= event.time %>"/></td>
+              <td><input type="time" name="time" required value="<%= event.time %>"/></td>
             </tr>
             <tr>
               <td>Venue</td>

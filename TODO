@@ -1,10 +1,10 @@
 lint nodejs code
 calendar picker for date
 make template from KK site
-many env / path variables for configuration (organiser emails)
 add field for visual contribution
-load instance content partials from md files
 
 DONE
+many env / path variables for configuration (organiser emails)
+load instance content partials from md files
 fallback "no events programmed" text
 use middleware for view logic
