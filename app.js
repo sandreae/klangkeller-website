@@ -10,7 +10,7 @@ var documentation = require('./routes/documentation');
 
 var config = require('config').get('Site');
 var port = process.env.PORT || 3000
-var promise = mongoose.connect(process.env.MONGO_URL  ||  'mongodb://mongo:27017/klangkeller');
+var promise = mongoose.connect(process.env.MONGO_URL  ||  'mongodb://mongo:27017/klangkeller', { useNewUrlParser: true,  useUnifiedTopology: true  });
 
 const TITLE=config.get('title');
 const VENUES=config.get('venues');
