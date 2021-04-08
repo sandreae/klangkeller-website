@@ -3,6 +3,7 @@
         "title": "KLANGKELLER",
         "venues": ["kino", "keller", "hof"],
         "organisers": [{"name": "organiser1", "email": "organiser1[at]klangkeller.net"},{"name": "organiser2", "email": "organiser2[at]klangkeller.net"}],
-        "dbString": null
+        "dbString": null,
+        "contentPath": "default"
     }
 }

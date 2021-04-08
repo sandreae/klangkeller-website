@@ -1,5 +1,6 @@
 {
     "Site": {
-        "dbString": "MONGO_URL"
+        "dbString": "MONGO_URL",
+        "contentPath": "NODE_APP_INSTANCE"
     }
 }
