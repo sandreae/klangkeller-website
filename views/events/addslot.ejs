@@ -4,13 +4,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Sign-up</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
-    <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
   </head>
   <body>
     <div class="container">
       <%- include('../partials/title') %>        
       <div class="sub-title">
-      <h2><%= event.klangkellerID %><br><%= eventDate %><br>sign-up</h2>
+      <h2><%= event.klangkellerID %><br><%= data.event.date.toDateString() %><br>sign-up</h2>
       </div>
     <div class="content">
       <form id="event" action="/events/saveslot/<%= event._id%>/<%= query.slot %>" method="post">

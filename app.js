@@ -50,6 +50,7 @@ app.use((req, res, next) => {
   }
   res.options = options
   res.content = content
+  res.data = {}
   next()
 })
 app.use('/', index);
