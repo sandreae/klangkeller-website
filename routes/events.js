@@ -1,22 +1,24 @@
 var express = require('express');
 var router = express.Router();
-var events = require("../controllers/EventController.js");
+var event = require("../controllers/EventController.js");
+var slot = require("../controllers/SlotController.js");
 
-// Get all events
-router.get('/', events.getAll, events.processEvents, events.showAll);
-router.get('/create', events.create);
-router.get('/edit/:id', events.getOne, events.editForm);
-router.get('/addslot/:id', events.getOne, events.addSlotForm);
-router.get('/addexhibit/:id', events.getOne, events.addExhibitForm);
-router.get('/addbardoc/:id', events.getOne, events.addBarDoc);
+router.get('/', event.getAll, event.processEvents, event.showAll);
+router.get('/create', event.create);
+router.get('/edit/:id', event.getOne, event.editForm);
 
-router.post('/', events.save);
-router.post('/update/:id', events.update);
-router.post('/savebar/:id', events.saveBar);
-router.post('/saveexhibit/:id', events.saveExhibit);
-router.post('/savedoc/:id', events.saveDoc);
-router.post('/saveslot/:id1/:id2', events.saveSlot);
-router.post('/delete/:id', events.delete);
+router.get('/addslot/:id', event.getOne, slot.addSlotForm);
+router.get('/addexhibit/:id', event.getOne, slot.addExhibitForm);
+router.get('/addbardoc/:id', event.getOne, slot.addBarDocForm);
+
+router.post('/', event.save);
+router.post('/update/:id', event.update);
+router.post('/delete/:id', event.delete);
+
+router.post('/savebar/:id', slot.saveBar);
+router.post('/saveexhibit/:id', slot.saveExhibit);
+router.post('/savedoc/:id', slot.saveDoc);
+router.post('/saveslot/:id1/:id2', slot.saveSlot);
 
 // Forwarders for routes that need query params
 router.get('/signup', function(req, res, next) {res.redirect("/events/?signup=true");});
