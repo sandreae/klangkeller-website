@@ -21,6 +21,8 @@ const TITLE=config.get('title');
 const VENUES=config.get('venues');
 const MEMBERS=config.get('organisers');
 const CONTENT_PATH=config.get('contentPath');
+const USER=config.get('user');
+const PASSWORD=config.get('password');
 
 var port = process.env.PORT || 3000
 // config.get('dbString') is set via environment variable MONGO_URL
@@ -51,7 +53,8 @@ app.use((req, res, next) => {
   const options = {
     title: TITLE,
     venues: VENUES,
-    members: MEMBERS
+    members: MEMBERS,
+    users: [{id: USER, password: PASSWORD}],
   }
   res.options = options
   res.content = content

@@ -10,6 +10,8 @@ services:
     environment: 
       - MONGO_URL=mongodb://mongo:27017/klangkeller
       - NODE_APP_INSTANCE=klangkeller
+      - USER=admin
+      - PASSWORD=pass
     volumes:
       - ./:/usr/src/app
     entrypoint: ["npm", "run", "dev"]

@@ -1,9 +1,5 @@
 var authController = {};
 
-const Users = [
-    {id: "admin", password: "password"}
-];  
-
 authController.checkSignIn = function (req, res, next){
     if(req.session.user){
        next();     //If session exists, proceed to page
@@ -20,12 +16,12 @@ authController.login = function (req, res) {
 }
 
 authController.loginPost = function (req, res, next) {
-    const {content} = res
-    console.log(Users);
+    const {content, options} = res
+    console.log(options.users);
     if(!req.body.id || !req.body.password){
        res.render('auth/login', {content, message: "Please enter both id and password"});
     } else {
-       Users.filter(function(user){
+        options.users.filter(function(user){
           if(user.id === req.body.id && user.password === req.body.password){
             req.session.user = user;
             res.redirect('/events/signup');
