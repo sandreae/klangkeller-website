@@ -4,6 +4,8 @@
         "venues": ["kino", "keller", "hof"],
         "organisers": [{"name": "organiser1", "email": "organiser1[at]klangkeller.net"},{"name": "organiser2", "email": "organiser2[at]klangkeller.net"}],
         "dbString": null,
+        "user": "admin",
+        "password": "change-me-bad-password",
         "contentPath": "default"
     }
 }
