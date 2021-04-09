@@ -1,6 +1,8 @@
 {
     "Site": {
         "dbString": "MONGO_URL",
-        "contentPath": "NODE_APP_INSTANCE"
+        "contentPath": "NODE_APP_INSTANCE",
+        "user": "USER",
+        "password": "PASSWORD"
     }
 }

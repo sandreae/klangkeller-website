@@ -6,27 +6,27 @@
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script> 
       document.addEventListener("DOMContentLoaded", function(event) {
-      document.getElementById("isFestival").value = "<%= event.isFestival %>"
-      document.getElementById("slotNumber").value = "<%= event.slotNumber %>"
-      document.getElementById("venue").value = "<%= event.venue %>"
-      document.getElementById("contactForm").value = "<%= event.contact %>"
+      document.getElementById("isFestival").value = "<%= data.event.isFestival %>"
+      document.getElementById("slotNumber").value = "<%= data.event.slotNumber %>"
+      document.getElementById("venue").value = "<%= data.event.venue %>"
+      document.getElementById("contactForm").value = "<%= data.event.contact %>"
     });</script>
   </head>
   <body>
     <div class="container">
       <%- include('../partials/title') %>
       <h2>Edit Event</h2>
-      <form action="/events/update/<%= event._id %>" method="post" id="event">
+      <form action="/events/update/<%= data.event._id %>" method="post" id="event">
         <table>
           <tbody>
             <tr>
               <td>Event Name/No.</td>
-              <td><input type="text" name="klangkellerID" required value="<%= event.klangkellerID %>"/></td>
+              <td><input type="text" name="klangkellerID" required value="<%= data.event.klangkellerID %>"/></td>
             </tr>
             <tr>
               <td>Is this a festival event?</td>
               <td>
-                <select id="isFestival" name="isFestival" form="event" required value="<%= event.isFestival %>">
+                <select id="isFestival" name="isFestival" form="event" required value="<%= data.event.isFestival %>">
                   <option value="false">No</option>
                   <option value="true">Yes</option>
                 </select>
@@ -34,16 +34,16 @@
             </tr>
             <tr>
               <td>Date</td>
-              <td><input type="date" name="date" required value="<%= new Date(event.date).toISOString().slice(0, 10) %>"/></td>
+              <td><input type="date" name="date" required value="<%= new Date(data.event.date).toISOString().slice(0, 10) %>"/></td>
             </tr>
             <tr>
               <td>Time</td>
-              <td><input type="time" name="time" required value="<%= event.time %>"/></td>
+              <td><input type="time" name="time" required value="<%= data.event.time %>"/></td>
             </tr>
             <tr>
               <td>Venue</td>
               <td>
-                <select name="venue" id="venue" form="event" required value="<%= event.venue %>">
+                <select name="venue" id="venue" form="event" required value="<%= data.event.venue %>">
                   <% include('../partials/venueoptions') %>
                   <%- venueOptions(options.venues) %>
                 </select>

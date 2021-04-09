@@ -3,9 +3,8 @@ var Event = require("../models/Event");
 var fs = require('fs')
 var docuController = {};
 
-// Show list of Events
 docuController.list = function(req, res) {
-  events = res.events.map(event => {
+  events = res.data.events.map(event => {
     if(fs.existsSync("./views/documentation/" + event.klangkellerID + ".ejs")){
       event.isDocumented = true;
     } else {
@@ -13,7 +12,8 @@ docuController.list = function(req, res) {
     }
     return event
   })
-  res.render("../views/documentation/documentation", {events: events, options: res.options, content: res.content});
+  const {data, options, content} = res
+  res.render("../views/documentation/documentation", {data, options, content});
 };
 
 module.exports = docuController;

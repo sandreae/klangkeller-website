@@ -17,7 +17,7 @@
       const reversedEvents = events.reverse()
       reversedEvents.forEach(event => { %>
           <div class="docu-content">
-            <span class="title"><b><%= event.klangkellerID%></b><br></span>
+            <span class="title"><b><%= data.event.klangkellerID%></b><br></span>
             <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
             <b><%= eventDate %></b><br>
             <% for(var x=0; x<event.slotNumber;x++) { %>
@@ -36,7 +36,7 @@
               Bar/Door Staff: <%= event.bar.name %>
             <% } %></p>
             <% if (event.isDocumented) { %>
-                <%- include("./" + event.klangkellerID); %>
+                <%- include("./" + data.event.klangkellerID); %>
             <% } %>
           </div>
         <% }) %>

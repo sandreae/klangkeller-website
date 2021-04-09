@@ -2,20 +2,102 @@ var mongoose = require("mongoose");
 var Event = require("../models/Event");
 var eventController = {};
 
-// Show list of Events
-eventController.getEvents = function (req, res, next) {
-  // fetch all events and return as plain JS object
+eventController.getOne = function(req, res, next) {
+  Event.findOne({_id: req.params.id}).exec(function (err, event) {
+    if (err) {
+      console.log("Error:", err);
+    }
+    else {
+      res.data.event = event
+      next()
+    }
+  });
+};
+
+eventController.getAll = function (req, res, next) {
   Event.find({}).sort({'date': 'asc'}).exec(function (err, events) {
     if (err) {
       console.log("Error:", err);
     }
     else {
-      console.log(events)
-      res.events = events
-
+      res.data.events = events
       next();
     }
   });
+};
+
+eventController.create = function(req, res) {
+  const {data, options, content} = res
+  res.render("../views/events/create", {data, options, content});
+};
+
+eventController.save = function(req, res) {
+  var event = new Event({
+    klangkellerID: req.body.klangkellerID,
+    date: req.body.date,
+    time: req.body.time,
+    venue: req.body.venue,
+    contact: req.body.contact,
+    exhibit: req.body.exhibit,
+    slotNumber: req.body.slotNumber,
+    slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5},{slot: 6},{slot: 7},{slot: 8}],
+    bar: {},
+    isFestival: req.body.isFestival,
+    hasExhibit: req.body.hasExhibit
+  });
+  event.save(function(err) {
+    if(err) {
+      const {options, content} = res
+      console.log(err);
+      res.render("../views/events/create", {options, content});
+    } else {
+      console.log(event)
+      console.log("Successfully created an event.");
+      res.redirect("/events?admin=true");
+    }
+  });
+};
+
+eventController.update = function(req, res) {
+  Event.findByIdAndUpdate(req.params.id, { $set: { 
+    klangkellerID: req.body.klangkellerID,
+    date: req.body.date,
+    time: req.body.time,
+    venue: req.body.venue,
+    contact: req.body.contact,
+    slotNumber: req.body.slotNumber,
+    isFestival: req.body.isFestival,
+    hasExhibit: req.body.hasExhibit
+  }}, { new: true }, function (err, event) {
+    if (err) {
+      console.log(err);
+      res.render("../views/events/edit", {event: req.body});
+    }
+    console.log(event)
+    res.redirect("/events/");
+  });
+};
+
+eventController.delete = function(req, res) {
+  Event.remove({_id: req.params.id}, function(err) {
+    if(err) {
+      console.log(err);
+    }
+    else {
+      console.log("Event deleted!");
+      res.redirect("/events?admin=true");
+    }
+  });
+};
+
+eventController.showAll = function(req, res) {
+  const {data, options, content} = res
+  res.render("../views/events/index", {data, options, content, query: req.query});
+};
+
+eventController.editForm = function(req, res) {
+  const {data, options, content} = res
+  res.render("../views/events/edit", {data, options, content});
 };
 
 eventController.processEvents = function (req, res, next){
@@ -25,10 +107,10 @@ eventController.processEvents = function (req, res, next){
   const oneDay = 86400000
   const yesterday = new Date(today - (1*oneDay))  
 
-  let futureEvents = res.events.filter(event => yesterday.getTime() <= event.date.getTime());
+  let futureEvents = res.data.events.filter(event => yesterday.getTime() <= event.date.getTime());
   
   // generate event countdown
-  res.futureEvents = futureEvents.map(event => {
+  res.data.futureEvents = futureEvents.map(event => {
     event = event.toObject()
     let eventDate = event.date.toDateString()
     let count = 0
@@ -78,215 +160,11 @@ eventController.processEvents = function (req, res, next){
 
     if (mil <= 0) {message = "sign-up now!"; signupLink = true}
 
-    countdown.message = message
-    countdown.signupLink = signupLink
-    event.countdown = countdown
+    event.countdown = {message, signupLink}
+
     return event
   })
-  console.log(res.futureEvents)
   next();
-};
-
-// Show list of Events
-eventController.list = function(req, res) {
-  res.render("../views/events/index", {events: res.events, futureEvents: res.futureEvents, query: req.query, options: res.options, content: res.content});
-};
-
-// Create new Event
-eventController.create = function(req, res) {
-  res.render("../views/events/create", {options: res.options, content: res.content});
-};
-
-// Save new Event
-eventController.save = function(req, res) {
-  var event = new Event({
-    klangkellerID: req.body.klangkellerID,
-    date: req.body.date,
-    time: req.body.time,
-    venue: req.body.venue,
-    contact: req.body.contact,
-    exhibit: req.body.exhibit,
-    slotNumber: req.body.slotNumber,
-    slots: [{slot: 1},{slot: 2},{slot: 3},{slot: 4},{slot: 5},{slot: 6},{slot: 7},{slot: 8}],
-    bar: {},
-    isFestival: req.body.isFestival,
-    hasExhibit: req.body.hasExhibit
-  });
-  event.save(function(err) {
-    if(err) {
-      console.log(err);
-      res.render("../views/events/create", {options: res.options, content: res.content});
-    } else {
-      console.log(event)
-      console.log("Successfully created an event.");
-      res.redirect("/events?admin=true");
-    }
-  });
-};
-
-// Edit an Event
-eventController.edit = function(req, res) {
-  Event.findOne({_id: req.params.id}).exec(function (err, event) {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/events/edit", {event: event, options: res.options, content: res.content});
-    }
-  });
-};
-
-// Update an Event
-eventController.update = function(req, res) {
-  Event.findByIdAndUpdate(req.params.id, { $set: { 
-    klangkellerID: req.body.klangkellerID,
-    date: req.body.date,
-    time: req.body.time,
-    venue: req.body.venue,
-    contact: req.body.contact,
-    slotNumber: req.body.slotNumber,
-    isFestival: req.body.isFestival,
-    hasExhibit: req.body.hasExhibit
-  }}, { new: true }, function (err, event) {
-    if (err) {
-      console.log(err);
-      res.render("../views/events/edit", {event: req.body});
-    }
-    console.log(event)
-    res.redirect("/events/");
-  });
-};
-
-// add a slot
-eventController.addSlot = function(req, res) {
-  Event.findOne({_id: req.params.id}).exec(function (err, event) {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/events/addslot", {event: event, query: req.query, options: res.options, content: res.content});
-    }
-  });
-};
-
-// add a exhibit
-eventController.addExhibit = function(req, res) {
-  Event.findOne({_id: req.params.id}).exec(function (err, event) {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/events/addexhibit", {event: event, query: req.query, options: res.options, content: res.content});
-    }
-  });
-};
-
-
-// add a slot
-eventController.addBarDoc = function(req, res) {
-  Event.findOne({_id: req.params.id}).exec(function (err, event) {
-    if (err) {
-      console.log("Error:", err);
-    }
-    else {
-      res.render("../views/events/savebardoc", {event: event, query: req.query, options: res.options, content: res.content});
-    }
-  });
-};
-
-// save bar
-eventController.saveDoc = function(req, res) {
-  Event.findByIdAndUpdate(req.params.id,
-    { $set: {
-      "documentation.name": req.body.name,
-      "documentation.contact": req.body.contact
-    }},
-      function(err,doc) {
-        if(err) {
-          console.log(err);
-        }
-        else {
-          console.log("Documentation updated");
-          res.redirect("/events");
-        }
-    }
-  );
-};
-
-// save bar
-eventController.saveBar = function(req, res) {
-  Event.findByIdAndUpdate(req.params.id,
-    { $set: {
-      "bar.name": req.body.name,
-      "bar.contact": req.body.contact
-    }},
-      function(err,doc) {
-        if(err) {
-          console.log(err);
-        }
-        else {
-          console.log("Bar updated");
-          res.redirect("/events");
-        }
-    }
-  );
-};
-
-// save slot
-eventController.saveSlot = function(req, res) {
-  console.log(req.body)
-  Event.findOneAndUpdate(
-    { "_id": req.params.id1, "slots._id": req.params.id2 },
-    { "$set": {
-      "slots.$.title": req.body.title,
-      "slots.$.description": req.body.description,
-      "slots.$.duration": req.body.duration,
-      "slots.$.contact": req.body.contact
-    }},
-      function(err,doc) {
-        if(err) {
-          console.log(err);
-        }
-        else {
-          console.log("Slot updated");
-          console.log(doc)
-          res.redirect("/events");
-        }
-    }
-  );
-};
-
-// save exhibit
-eventController.saveExhibit = function(req, res) {
-  Event.findByIdAndUpdate(req.params.id,
-    { $set: {
-      "exhibit.title": req.body.title,
-      "exhibit.description": req.body.description,
-      "exhibit.contact": req.body.contact
-    }},
-      function(err,doc) {
-        if(err) {
-          console.log(err);
-        }
-        else {
-          console.log("Exhibit updated");
-          res.redirect("/events");
-        }
-    }
-  );
-};
-
-// Delete an Event
-eventController.delete = function(req, res) {
-  Event.remove({_id: req.params.id}, function(err) {
-    if(err) {
-      console.log(err);
-    }
-    else {
-      console.log("Event deleted!");
-      res.redirect("/events?admin=true");
-    }
-  });
 };
 
 module.exports = eventController;

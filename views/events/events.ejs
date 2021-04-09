@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <%  
-  if (futureEvents.length === 0){
+  if (data.futureEvents.length === 0){
     return "There are no events programmed, see our documentation page for past events"
   }
   
-  for(let i=0; i < futureEvents.length;i++) {
-      const event = futureEvents[i]
+  for(let i=0; i < data.futureEvents.length;i++) {
+      const event = data.futureEvents[i]
       %>
        
       <%- include('../partials/event-title', {event}) %>

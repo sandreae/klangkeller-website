@@ -8,14 +8,14 @@
   <body>
     <div class="container">
       <div class="title">
-      <h1>KLANGKELLER <%= event.klangkellerID %> Sign-up</h1>
+      <h1>KLANGKELLER <%= data.event.klangkellerID %> Sign-up</h1>
     </div>
     <div class="about">
       <%- include('../partials/signup-info') %>
     </div>
     <div class="content">
       <% query.signup %>
-      <form action="/events/save<%= query.signup %>/<%= event._id%>" method="post">
+      <form action="/events/<%= query.signup %>/<%= data.event._id%>" method="post">
         <table>
           <tbody>
             <tr>
