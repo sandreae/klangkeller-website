@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign-up</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <div class="container">
+    <div class="content">
+      <form id="event" action="/login" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <td>username</td>
+              <td><input type="text" name="id" required/></td>
+            </tr>
+            <tr>
+              <td>password</td>
+              <td><input type="password" name="password" required/></td>
+            </tr>
+            <tr>
+              <td><%= message %></td>
+            </tr>
+            <td colspan="2"><button type="submit">Enter</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    <div class="about">
+      <%- include('../partials/signup-info') %>
+    </div>
+    </div>
+  </body>
+</html>

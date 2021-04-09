@@ -9,10 +9,10 @@
     <div class="container">
       <%- include('../partials/title') %>        
       <div class="sub-title">
-      <h2><%= event.klangkellerID %><br><%= data.event.date.toDateString() %><br>sign-up</h2>
+      <h2><%= data.event.klangkellerID %><br><%= data.event.date.toDateString() %><br>sign-up</h2>
       </div>
     <div class="content">
-      <form id="event" action="/events/saveslot/<%= event._id%>/<%= query.slot %>" method="post">
+      <form id="event" action="/events/saveslot/<%= data.event._id%>/<%= query.slot %>" method="post">
         <table>
           <tbody>
             <tr>
@@ -28,7 +28,7 @@
                 <td>
                 <select name="duration" form="event" required>
                     <%- include('../partials/slotdurations') %>
-                    <%- slotDurations(event) %>
+                    <%- slotDurations( data.event ) %>
                   </select>
               </td>
               </tr>
