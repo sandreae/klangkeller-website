@@ -4,7 +4,9 @@
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js",
-    "lint": "npx ejs-lint views/*.ejs views/*/*.ejs"
+    "lint:ejs": "npx ejs-lint views/*.ejs views/*/*.ejs",
+    "lint:js": "npx eslint models/*.js controllers/*.js routes/*.js",
+    "lint": "npm run lint:ejs && npm run lint:js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -27,6 +29,9 @@
   },
   "devDependencies": {
     "ejs-lint": "^1.1.0",
-    "eslint": "^7.23.0"
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "prettier": "^2.2.1"
   }
 }

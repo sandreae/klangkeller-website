@@ -59,6 +59,7 @@ If you want to run multiple instances of this app, deployed from the same repo, 
 
     $ npm start
     $ npm run dev
+    $ npm run lint
 
 ## Docker
 #### Locally
