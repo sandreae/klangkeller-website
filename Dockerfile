@@ -4,8 +4,8 @@ FROM node:15-alpine
 WORKDIR /usr/src/app
 
 # Install git
-RUN apt update
-RUN apt install -y git
+RUN apk update
+RUN apk add git
 
 # Install app dependencies
 COPY package*.json ./
