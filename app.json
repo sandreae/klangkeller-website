@@ -1,0 +1,7 @@
+{
+    "scripts": {
+      "dokku": {
+        "predeploy": "git clone https://github.com/sandreae/s10c-content.git ./s10c"
+      }
+    }
+  }
