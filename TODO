@@ -1,9 +1,12 @@
-lint nodejs code
-calendar picker for date
 make template from KK site
-add field for visual contribution
+smart solution for documentation subsite
+forward unauthenticated requests to protected routes to login page
+/admin & /signup should forward to /?admin=true & /?signup=true
 
 DONE
+add field for visual contribution
+lint nodejs code
+calendar picker for date
 many env / path variables for configuration (organiser emails)
 load instance content partials from md files
 fallback "no events programmed" text
