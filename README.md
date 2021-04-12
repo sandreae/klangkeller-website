@@ -57,16 +57,20 @@ If you want to run multiple instances of this app, deployed from the same repo, 
 
 ## Running the project
 
+    # run app
     $ npm start
+    
+    # Run in development mode
     $ npm run dev
+    
+    # Lint code
     $ npm run lint
 
 ## Docker
 #### Locally
-    $ docker-compose up
 
-#### Dokku deployment
-    $ dokku git:from-image sandreae/klangkeller:latest
+    # run app and db in container
+    $ docker-compose up
 
 ## TODO
 
