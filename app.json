@@ -1,7 +1,8 @@
 {
     "scripts": {
       "dokku": {
-        "predeploy": "git -C ./content/s10c pull || git clone https://github.com/sandreae/s10c-content.git ./content/s10c"
+        "predeploy": "git -C ./content/s10c pull || git clone https://github.com/sandreae/s10c-content.git ./content/s10c",
+        "postdeploy": "cp ./content/config/local-s10c.json ./config/"
       }
     }
   }
