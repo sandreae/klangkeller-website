@@ -2,7 +2,7 @@
 
 Website and booking platform for [klangkeller](www.klangkeller.net)
 
-*This is not a template repo, it contains documentation files specific to this instance. This may be improved in the future, but for now that's the way it is. If you want to deploy your own instance, clone this repo and then delete all files in public/documentation and views/documentation (except for the root view documentation.ejs). Then you can configure the site following the instructions below.*
+*This is not a template repo, it contains documentation files specific to this instance. This may be improved in the future, but for now that's the way it is. If you want to deploy your own instance, clone this repo and then delete folders in public/documentation and views/documentation (leave to the root view documentation.ejs). Then you can configure the site following the instructions below.*
 
 ---
 ## Requirements
