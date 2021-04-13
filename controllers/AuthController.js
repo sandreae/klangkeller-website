@@ -5,7 +5,6 @@ authController.checkSignIn = function (req, res, next) {
     next(); //If session exists, proceed to page
   } else {
     var err = new Error('Not logged in!');
-    console.log(req.session.user);
     next(err); //Error, trying to access unauthorized page!
   }
 };
@@ -31,7 +30,6 @@ authController.loginPost = function (req, res, next) {
       }
     });
     var err = new Error('Invalid credentials!');
-    console.log(req.session.user);
     next(err); //Error, trying to access unauthorized page!
   }
 };

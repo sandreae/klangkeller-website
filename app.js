@@ -83,12 +83,13 @@ app.use('/', index);
 app.use('/', auth);
 app.use('/events', events);
 app.use('/documentation', documentation);
-app.use('*', index);
 
 app.use('/events', function (err, req, res, next) {
   console.log(err);
   res.redirect('/login');
 });
+
+app.use('*', index);
 
 app.listen(port, function () {
   console.log('Express server is up and running!');
