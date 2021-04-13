@@ -3,10 +3,6 @@ FROM node:15-alpine
 # Create app directory
 WORKDIR /usr/src/app
 
-# Install git
-RUN apk update
-RUN apk add git
-
 # Install app dependencies
 COPY package*.json ./
 
