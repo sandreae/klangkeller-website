@@ -35,8 +35,8 @@
               ////////////////////////////<br>  
               Bar/Door Staff: <%= event.bar.name %>
             <% } %></p>
-            <% if (event.isDocumented) { %>
-                <%- include("./" + event.klangkellerID); %>
+            <% if (event.documentationPath) { %>
+                <%- include(event.documentationPath); %>
             <% } %>
           </div>
         <% }) %>

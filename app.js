@@ -19,7 +19,7 @@ const DB_URL = config.get('dbString');
 const TITLE = config.get('title');
 const VENUES = config.get('venues');
 const MEMBERS = config.get('organisers');
-const CONTENT_PATH = config.get('contentPath');
+const CONTENT_PREFIX = config.get('contentPath');
 const USER = config.get('user');
 const PASSWORD = config.get('password');
 
@@ -42,7 +42,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 const fetchContent = (file) => {
   try {
-    return matter.read(`${__dirname}/content/${CONTENT_PATH}/${file}.md`)
+    return matter.read(`${__dirname}/content/${CONTENT_PREFIX}/${file}.md`)
       .content;
   } catch {
     (err) => {
@@ -68,6 +68,7 @@ app.use((req, res, next) => {
   };
   const options = {
     title: TITLE,
+    prefix: CONTENT_PREFIX,
     venues: VENUES,
     members: MEMBERS,
     users: [{ id: USER, password: PASSWORD }],
