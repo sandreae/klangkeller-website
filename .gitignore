@@ -3,8 +3,3 @@ node_modules
 
 # Local testing
 .env
-
-# Config files
-config/local-klangkeller.json
-config/local-s10c.json
-config/local.json

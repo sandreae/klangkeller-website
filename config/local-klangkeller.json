@@ -1,0 +1,11 @@
+{
+    "Site": {
+        "title": "KLANGKELLER",
+        "venues": ["kino", "keller", "hof"],
+        "organisers": [{"name": "team", "email": "team[at]klangkeller.net"}],
+        "dbString": null,
+        "user": null,
+        "password": null,
+        "contentPath": "klangkeller"
+    }
+}

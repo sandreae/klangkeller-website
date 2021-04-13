@@ -1,0 +1,11 @@
+{
+    "Site": {
+        "title": "s10c",
+        "venues": ["project space", "studio", "courtyard"],
+        "organisers": [{"name": "s10c", "email": "hello[at]s10c.co.uk"}],
+        "dbString": null,
+        "user": null,
+        "password": null,
+        "contentPath": "s10c"
+    }
+}
