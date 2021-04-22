@@ -10,7 +10,7 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    environment: klangkeller
+    environment: dokku
     steps:
       - name: Cloning repo
         uses: actions/checkout@v2
