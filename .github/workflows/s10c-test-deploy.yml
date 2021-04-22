@@ -1,5 +1,5 @@
 ---
-name: 'deploy'
+name: 's10c-test deploy'
 
 # yamllint disable-line rule:truthy
 on:
