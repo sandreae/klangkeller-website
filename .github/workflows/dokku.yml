@@ -9,8 +9,8 @@ on:
 
 jobs:
   deploy:
-    environment: klangkeller
     runs-on: ubuntu-latest
+    environment: klangkeller
     steps:
       - name: Cloning repo
         uses: actions/checkout@v2
@@ -22,6 +22,5 @@ jobs:
         with:
           # specify `--force` as a flag for git pushes
           git_push_flags: '--force'
-          git_remote_url: ${{ secrets.DOKKU_URL }}
-          ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
+          git_remote_url: 'ssh://dokku@samandreae.com:22/klangkeller-website'
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
