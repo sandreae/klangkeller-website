@@ -1,8 +1,6 @@
 ---
 name: 'deploy'
 
-environment: klangkeller
-
 # yamllint disable-line rule:truthy
 on:
   push:
@@ -11,6 +9,7 @@ on:
 
 jobs:
   deploy:
+    environment: klangkeller
     runs-on: ubuntu-latest
     steps:
       - name: Cloning repo
