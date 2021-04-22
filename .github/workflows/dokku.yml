@@ -21,6 +21,6 @@ jobs:
         with:
           # specify `--force` as a flag for git pushes
           git_push_flags: '--force'
-          git_remote_url: 'ssh://dokku@samandreae.com:22/klangkeller-website'
+          git_remote_url: ${{ secrets.DOKKU_URL }}
           ssh_host_key: ${{ secrets.SSH_HOST_KEY }}
           ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
