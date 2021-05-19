@@ -22,6 +22,7 @@ const MEMBERS = config.get('organisers');
 const CONTENT_PREFIX = config.get('contentPath');
 const USER = config.get('user');
 const PASSWORD = config.get('password');
+const SLOT_LENGTHS = config.get('slotLengths');
 
 var port = process.env.PORT || 3000;
 // config.get('dbString') is set via environment variable MONGO_URL
@@ -72,7 +73,9 @@ app.use((req, res, next) => {
     venues: VENUES,
     members: MEMBERS,
     users: [{ id: USER, password: PASSWORD }],
+    slotLengths: SLOT_LENGTHS,
   };
+  req.options = options;
   res.options = options;
   res.content = content;
   res.data = {};

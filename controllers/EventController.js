@@ -40,6 +40,7 @@ eventController.save = function (req, res) {
     contact: req.body.contact,
     exhibit: req.body.exhibit,
     slotNumber: req.body.slotNumber,
+    slotLengths: req.options.slotLengths,
     slots: [
       { slot: 1 },
       { slot: 2 },
@@ -161,7 +162,7 @@ eventController.processEvents = function (req, res, next) {
       signupDate = eventDate.addDays(-84);
     }
     if (slotsLeft === 1) {
-      signupDate = eventDate.addDays(-28);
+      signupDate = eventDate.addDays(-84);
     }
 
     var mil = signupDate - now;

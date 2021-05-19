@@ -22,6 +22,7 @@ var Event = new mongoose.Schema({
   venue: { type: String, default: '' },
   contact: { type: String, default: 'contact@notmyemail.com' },
   slotNumber: { type: Number, default: 3 },
+  slotLengths: { type: Array, default: [40, 30, 10] },
   exhibit: Exhibit,
   slots: [Slot],
   documentation: {

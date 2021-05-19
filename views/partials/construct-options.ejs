@@ -1,0 +1,10 @@
+<% 
+	constructOptions = function(remainingSlotTimes){
+		let times = [ ...new Set(remainingSlotTimes) ];
+		let options = ''
+		times.forEach((time) => {
+			options += `<option value=${time}>${time} min</option>`
+		})      
+		return options                 
+	} 
+%>
