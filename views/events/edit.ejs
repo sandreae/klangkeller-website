@@ -67,7 +67,7 @@
             <tr>
               <td>Will this event have an exhibition?</td>
               <td>
-                <select name="hasExhibit" form="event" required value="false">
+                <select name="hasExhibit" form="event" required value="<%= data.event.hasExhibit %>">
                   <option value="false">No</option>
                   <option value="true">Yes</option>
                 </select>

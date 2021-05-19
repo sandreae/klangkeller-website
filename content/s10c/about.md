@@ -1,3 +1,2 @@
-S10C is a performance and exhibition space for art, music and theory. It works on the basis that experimentation and spontaneity are crucial for a living and reflective art practice to survive. Each S10C night has 3 presentation/performance slots (45mins, 20mins and 5mins) which members of the changing S10C family can reserve directly 1 month, 1 week or 1 day in advance. Please come down and visit if you want to get involved.
+S10C is a performance and exhibition space for music and art located at [SET Space](https://setspace.uk/) Lewisham. The program is formed organically by a pool of artists who signup to play on the scheduled event dates. We want to focus on allowing the presentation of works in progress and spontaneous collaborations. This might mean the program isn't confirmed until relatively near to when an event will happen. Thanks in advance for your patience and curiosity!
 
-S10C events take place at SET in Lewisham

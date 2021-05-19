@@ -155,13 +155,13 @@ eventController.processEvents = function (req, res, next) {
     eventDate = new Date(eventDate);
 
     if (slotsLeft >= 3) {
-      signupDate = eventDate.addDays(-32);
+      signupDate = eventDate.addDays(-84);
     }
     if (slotsLeft === 2) {
-      signupDate = eventDate.addDays(-7);
+      signupDate = eventDate.addDays(-84);
     }
     if (slotsLeft === 1) {
-      signupDate = eventDate.addDays(-1);
+      signupDate = eventDate.addDays(-28);
     }
 
     var mil = signupDate - now;

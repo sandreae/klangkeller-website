@@ -1,3 +1,6 @@
+TODO
+make ENV var for how long in advance signups are
+
 DONE
 add field for visual contribution
 lint nodejs code
@@ -8,6 +11,9 @@ fallback "no events programmed" text
 use middleware for view logic
 forward unauthenticated requests to protected routes to login page
 /admin & /signup should forward to /?admin=true & /?signup=true
+text for explaining everything
+public text
+fix exhibition true/false
 
 NOT DOING NOW
 make template from KK site
