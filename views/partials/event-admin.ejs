@@ -3,10 +3,23 @@
     <td>
       <% if(query.admin === "true") { %>
         <a href="/events/edit/<%= event._id%>">edit event</a>
-        <form action="/events/delete/<%= event._id%>" method="post">
-          <button type="submit">DELETE</button>
+        <form id="deleteForm" action="/events/delete/<%= event._id%>" method="post">
+          <button id="deleteButton" type="submit">DELETE</button>
         </form>
       <% } %>
     </td>
   </tr>
 </html>
+<script>
+  let form = document.getElementById('deleteForm')
+  form.addEventListener(
+    "submit",
+    function(e){
+      var self=this;
+      e.preventDefault();
+      if (confirm('Are you sure you want to delete this event?')) {
+        self.submit()
+      }
+    }
+  );
+</script>
