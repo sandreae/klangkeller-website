@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Event = require('../models/Event');
+var { remainingSlotLengths } = require('../utils/utils');
 var slotController = {};
 
 slotController.saveDoc = function (req, res) {
@@ -87,31 +88,12 @@ slotController.saveExhibit = function (req, res) {
 
 slotController.addSlotForm = function (req, res) {
   const { data, options, content } = res;
-  // slot lengths
 
-  const defaultSlotTimes = data.event.slotLengths;
-  const remainingSlotTimes = [];
-  const eventSlots = data.event.slots;
-
-  defaultSlotTimes.sort(function (a, b) {
-    return b - a;
-  });
-
-  // populate remainingSlotTimes with all potential slots
-  for (let i = 0; i < data.event.slotNumber; i++) {
-    let index = i >= defaultSlotTimes.length ? i : defaultSlotTimes.length - 1;
-    remainingSlotTimes.push(defaultSlotTimes[index]);
-  }
-
-  // remove already booked slots
-  eventSlots.forEach(function (slot) {
-    if (slot.duration !== null) {
-      const index = remainingSlotTimes.indexOf(slot.duration);
-      remainingSlotTimes.splice(index, 1);
-    }
-  });
-
-  data.event.remainingSlotTimes = remainingSlotTimes;
+  data.event.remainingSlotTimes = remainingSlotLengths(
+    data.event.slotLengths,
+    data.event.slots,
+    data.event.slotNumber,
+  );
 
   res.render('../views/events/addslot', {
     data,

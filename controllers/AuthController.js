@@ -16,7 +16,6 @@ authController.login = function (req, res) {
 
 authController.loginPost = function (req, res, next) {
   const { content, options } = res;
-  console.log(options.users);
   if (!req.body.id || !req.body.password) {
     res.render('auth/login', {
       content,

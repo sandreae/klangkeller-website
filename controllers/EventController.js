@@ -1,5 +1,9 @@
 var mongoose = require('mongoose');
 var Event = require('../models/Event');
+var {
+  generateCountdownMessage,
+  filterFutureEvents,
+} = require('../utils/utils');
 var eventController = {};
 
 eventController.getOne = function (req, res, next) {
@@ -123,86 +127,14 @@ eventController.editForm = function (req, res) {
 
 eventController.processEvents = function (req, res, next) {
   // calculate future events
-  const today = new Date();
-  const oneDay = 86400000;
-  const yesterday = new Date(today - 1 * oneDay);
-
-  let futureEvents = res.data.events.filter(
-    (event) => yesterday.getTime() <= event.date.getTime(),
-  );
+  let futureEvents = filterFutureEvents(res.data.events);
 
   // generate event countdown
   res.data.futureEvents = futureEvents.map((event) => {
-    event = event.toObject();
-    let eventDate = event.date.toDateString();
-    let count = 0;
-    for (var x = 0; x < event.slotNumber; x++) {
-      if (event.slots[x].title != undefined) {
-        count++;
-      }
-    }
-
-    Date.prototype.addDays = function (oneDay) {
-      var dat = new Date(this.valueOf());
-      dat.setDate(dat.getDate() + oneDay);
-      return dat;
-    };
-
-    let message, signupDate;
-    let countdown = {};
-    let slotsLeft = event.slotNumber - count;
-
-    const now = new Date();
-    eventDate = new Date(eventDate);
-
-    if (slotsLeft >= 3) {
-      signupDate = eventDate.addDays(-84);
-    }
-    if (slotsLeft === 2) {
-      signupDate = eventDate.addDays(-84);
-    }
-    if (slotsLeft === 1) {
-      signupDate = eventDate.addDays(-84);
-    }
-
-    var mil = signupDate - now;
-    var seconds = (mil / 1000) | 0;
-    mil -= seconds * 1000;
-
-    var minutes = (seconds / 60) | 0;
-    seconds -= minutes * 60;
-
-    var hours = (minutes / 60) | 0;
-    minutes -= hours * 60;
-
-    var days = (hours / 24) | 0;
-    hours -= days * 24;
-
-    var weeks = (days / 7) | 0;
-    days -= weeks * 7;
-
-    if (slotsLeft === 0) {
-      message = 'sorry, this event is full';
-      signupLink = false;
-    } else {
-      message =
-        'next signup in ' +
-        weeks +
-        ' weeks, ' +
-        days +
-        ' days and ' +
-        hours +
-        ' hours.';
-      signupLink = false;
-    }
-
-    if (mil <= 0) {
-      message = 'sign-up now!';
-      signupLink = true;
-    }
-
-    event.countdown = { message, signupLink };
-
+    event.countdown = generateCountdownMessage(
+      event,
+      new Array(...res.options.signupIntervals),
+    );
     return event;
   });
   next();

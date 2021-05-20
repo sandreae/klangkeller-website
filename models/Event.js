@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Slot = new mongoose.Schema({
   title: { type: String, default: null },
   description: { type: String, default: null },
-  duration: { type: String, default: null },
+  duration: { type: Number, default: null },
   contact: { type: String, default: null },
   id: { type: Number, default: null },
 });
