@@ -7,30 +7,41 @@
   </head>
   <body>
     <div class="container">
-    <div class="content">
-      <form id="event" action="/login" method="post">
-        <table>
-          <tbody>
-            <tr>
-              <td>username</td>
-              <td><input type="text" name="id" required/></td>
-            </tr>
-            <tr>
-              <td>password</td>
-              <td><input type="password" name="password" required/></td>
-            </tr>
-            <tr>
-              <td><%= message %></td>
-            </tr>
-            <td colspan="2"><button type="submit">Enter</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
-    </div>
-    <div class="about">
-      <%- include('../partials/signup-info') %>
-    </div>
+      <div class="content">
+        <h1>Login</h1>
+        <p>Login with the credentials sent to you by email, then you will be able to signup for performance, exhibition, documentation and volunteering slots on the home page.</p>
+        <form id="event" action="/login" method="post">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div>
+                    <label for="username">
+                      <h3>Username</h3>
+                    </label>
+                  </div>
+                  <input id="username" type="text" name="id" required/>
+                </td>
+              </tr>
+              <tr>
+              <td>
+                <div>
+                  <label for="password">
+                    <h3>Password</h3>
+                  </label>
+                </div>
+                <input id="password" type="password" name="password" required/>
+              </td>
+              </tr>
+              <tr>
+                <td><%= message %></td>
+              </tr>
+              <td colspan="2"><button type="submit">Enter</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
     </div>
   </body>
 </html>

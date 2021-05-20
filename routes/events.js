@@ -5,7 +5,7 @@ var slot = require('../controllers/SlotController.js');
 var auth = require('../controllers/AuthController.js');
 
 // All these routes are protected
-router.use(auth.checkSignIn);
+router.use(auth.protectedRoute);
 
 router.get('/', event.getAll, event.processEvents, event.showAll);
 router.get('/create', event.create);

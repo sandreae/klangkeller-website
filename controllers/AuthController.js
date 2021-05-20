@@ -1,11 +1,19 @@
 var authController = {};
 
-authController.checkSignIn = function (req, res, next) {
+authController.protectedRoute = function (req, res, next) {
   if (req.session.user) {
     next(); //If session exists, proceed to page
   } else {
     var err = new Error('Not logged in!');
     next(err); //Error, trying to access unauthorized page!
+  }
+};
+
+authController.isLoggedIn = function (req, res, next) {
+  if (req.session.user) {
+    res.redirect('signup');
+  } else {
+    next();
   }
 };
 
@@ -37,7 +45,7 @@ authController.logout = function (req, res) {
   req.session.destroy(function () {
     console.log('user logged out.');
   });
-  res.render('auth/login', { content, message: '' });
+  res.redirect('/');
 };
 
 module.exports = authController;
