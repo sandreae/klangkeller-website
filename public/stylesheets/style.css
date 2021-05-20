@@ -17,6 +17,10 @@
   margin: 10px;
 }
 
+.about img {
+  max-width: 100%;
+}
+
 .content {
   margin: 10px;
 }
