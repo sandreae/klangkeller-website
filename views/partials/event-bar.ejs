@@ -1,15 +1,14 @@
 <html>
   <tr>
     <td>
-      ////////////////////////////<br>
       <% if(query.signup === "true" || query.admin === "true") { %>
-        <% if( event.bar != undefined) { %>
+        <% if( event.bar.name != undefined) { %>
+          ////////////////////////////<br>
           Bar/Door Staff: <%= event.bar.name %>
         <% } else { %>
-          Bar/Door Staff: click to <a href="/events/addbardoc/<%= event._id %>?signup=bar">signup</a>
+          ////////////////////////////<br>
+          Bar/Door Staff: click to <a href="/events/volunteer/<%= event._id %>">signup</a>
         <% } %>
-      <% } else { %>
-        Bar Staff: to be confirmed
       <% } %>
     </td>
   </tr>

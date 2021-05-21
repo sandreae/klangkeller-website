@@ -23,7 +23,7 @@ slotController.saveDoc = function (req, res) {
   );
 };
 
-slotController.saveBar = function (req, res) {
+slotController.saveVolunteer = function (req, res) {
   Event.findByIdAndUpdate(
     req.params.id,
     {
@@ -43,7 +43,27 @@ slotController.saveBar = function (req, res) {
   );
 };
 
-slotController.saveSlot = function (req, res) {
+slotController.saveDocu = function (req, res) {
+  Event.findByIdAndUpdate(
+    req.params.id,
+    {
+      $set: {
+        'documentation.name': req.body.name,
+        'documentation.contact': req.body.contact,
+      },
+    },
+    function (err, doc) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Bar updated');
+        res.redirect('/events');
+      }
+    },
+  );
+};
+
+slotController.savePerformance = function (req, res) {
   Event.findOneAndUpdate(
     { _id: req.params.id1, 'slots._id': req.params.id2 },
     {
@@ -86,7 +106,7 @@ slotController.saveExhibit = function (req, res) {
   );
 };
 
-slotController.addSlotForm = function (req, res) {
+slotController.performanceSignupForm = function (req, res) {
   const { data, options, content } = res;
 
   data.event.remainingSlotTimes = remainingSlotLengths(
@@ -95,7 +115,7 @@ slotController.addSlotForm = function (req, res) {
     data.event.slotNumber,
   );
 
-  res.render('../views/events/addslot', {
+  res.render('../views/events/form-performance', {
     data,
     options,
     content,
@@ -103,14 +123,25 @@ slotController.addSlotForm = function (req, res) {
   });
 };
 
-slotController.addExhibitForm = function (req, res) {
+slotController.exhibitionSignupForm = function (req, res) {
   const { data, options, content } = res;
-  res.render('../views/events/addexhibit', { data, options, content });
+  res.render('../views/events/form-exhibit', { data, options, content });
 };
 
-slotController.addBarDocForm = function (req, res) {
+slotController.volunteerSignupForm = function (req, res) {
   const { data, options, content } = res;
-  res.render('../views/events/savebardoc', {
+  console.log('Volunteer form route');
+  res.render('../views/events/form-volunteer', {
+    data,
+    options,
+    content,
+    query: req.query,
+  });
+};
+
+slotController.documentationSignupForm = function (req, res) {
+  const { data, options, content } = res;
+  res.render('../views/events/form-docu', {
     data,
     options,
     content,

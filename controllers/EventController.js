@@ -65,7 +65,6 @@ eventController.save = function (req, res) {
       console.log(err);
       res.render('../views/events/create', { options, content });
     } else {
-      console.log(event);
       console.log('Successfully created an event.');
       res.redirect('/events?admin=true');
     }
@@ -91,7 +90,10 @@ eventController.update = function (req, res) {
     function (err, event) {
       if (err) {
         console.log(err);
-        res.render('../views/events/edit', { event: req.body });
+        res.render('../views/events/edit', {
+          event: req.body,
+          options: req.options,
+        });
       }
       console.log(event);
       res.redirect('/events/');

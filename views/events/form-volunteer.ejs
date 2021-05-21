@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <%- include('../partials/head', {options}) %>  
+  <body>
+    <div class="container">
+    <%- include('../partials/title') %>   
+    <h2><%= data.event.klangkellerID %> // <%= data.event.date.toDateString() %></h2>
+    <div class="about">
+      <%- include('../partials/signup-info') %>
+    </div>
+    <div class="content">
+      <p>This is where you sign up to volunteer for an event which will normally involve helping on the door or bar.    
+      </p>
+      <form action="/events/volunteer/<%= data.event._id%>" method="post">
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <div><label for="name"><h3>Name</h3></label></div>
+                  <input id="name" type="text" name="name" required/>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                  <div><label for="contact"><h3>Email</h3></label></div>
+                  <input id="contact" type="email" name="contact" required/>
+              </td>
+            </tr>
+            <td colspan="2"><button type="submit">Save</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+    </div>
+  </body>
+</html>

@@ -1,21 +1,20 @@
 <!DOCTYPE html>
 <html>
   <%  
-  if (data.futureEvents.length === 0){
-    return "There are no events programmed, see our documentation page for past events"
-  }
-  
-  for(let i=0; i < data.futureEvents.length;i++) {
-      const event = data.futureEvents[i]
-      %>
-       
-      <%- include('../partials/event-title', {event}) %>
-      <%- include('../partials/event-slots', {event}) %>
-      <%- include('../partials/event-exhibit', {event}) %>
-      <%- include('../partials/event-docu', {event}) %>
-      <%- include('../partials/event-bar', {event}) %>
-      <%- include('../partials/event-contact', {event}) %>
-      <%- include('../partials/event-countdown', {event}) %>
-      <%- include('../partials/event-admin', {event}) %>
-      <% } %>
+    if (data.futureEvents.length === 0){
+      return "There are no events programmed, see our documentation page for past events"
+    }
+    
+    for(let i=0; i < data.futureEvents.length;i++) {
+        const event = data.futureEvents[i]
+  %>
+    <%- include('../partials/event-title', {event}) %>
+    <%- include('../partials/event-slots', {event}) %>
+    <%- include('../partials/event-exhibit', {event}) %>
+    <%- include('../partials/event-docu', {event}) %>
+    <%- include('../partials/event-bar', {event}) %>
+    <%- include('../partials/event-contact', {event}) %>
+    <%- include('../partials/event-countdown', {event}) %>
+    <%- include('../partials/event-admin', {event}) %>
+  <% } %>
 </html>

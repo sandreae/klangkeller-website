@@ -1,10 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><%= options.title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('../partials/head', {options}) %>  
   <body>
     <div class="container">
     <%- include('../partials/title') %>
@@ -16,7 +12,7 @@
       <% } %>
     </div>
     <div class="content">
-      <%- include('list') %>
+      <%- include('list-events') %>
       <% if(query.admin === "true") { %>
         <a href="/events/create">Create Event</a>
       <% } %>

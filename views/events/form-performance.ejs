@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sign-up</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
+  <%- include('../partials/head', {options}) %>  
   <body>
     <div class="container">
       <%- include('../partials/title') %>        
-      <div class="sub-title">
-      <h2><%= data.event.klangkellerID %><br><%= data.event.date.toDateString() %><br>sign-up</h2>
-      </div>
-    <div class="content">
-      <form id="event" action="/events/saveslot/<%= data.event._id%>/<%= query.slot %>" method="post">
+      <h2><%= data.event.klangkellerID %> // <%= data.event.date.toDateString() %></h2>
+  <div class="content">
+      <form id="event" action="/events/performance/<%= data.event._id%>/<%= query.slot %>" method="post">
         <table>
           <tbody>
             <tr>
               <td>
                 <div>
                   <label for="title"><h3>Title</h3>
-                  <p>The name of your performance, group, or exhibition.</p>
+                  <p>The title of your performance or your/your groups name.</p>
                   </label>
                 </div>
                 <input id="title" type="text" name="title" required/>

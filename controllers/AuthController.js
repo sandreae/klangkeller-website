@@ -19,7 +19,7 @@ authController.isLoggedIn = function (req, res, next) {
 
 authController.login = function (req, res) {
   const { content } = res;
-  res.render('auth/login', { content, message: '' });
+  res.render('auth/login', { content, message: '', options: req.options });
 };
 
 authController.loginPost = function (req, res, next) {
