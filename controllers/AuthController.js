@@ -28,6 +28,7 @@ authController.loginPost = function (req, res, next) {
     res.render('auth/login', {
       content,
       message: 'Please enter both id and password',
+      options: req.options,
     });
   } else {
     options.users.filter(function (user) {
