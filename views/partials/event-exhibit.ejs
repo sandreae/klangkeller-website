@@ -1,7 +1,7 @@
 <html>  
     <% if(event.hasExhibit === "false") { %>
         <tr><td></td></tr>
-    <% } else if (event.exhibit.title) { %>    
+    <% } else if (!event.exhibit || event.exhibit.title) { %>    
         <tr>
             <td>
                 ////////////////////////////<br>
