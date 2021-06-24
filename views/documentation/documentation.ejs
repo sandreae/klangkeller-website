@@ -16,6 +16,9 @@
             <span class="title"><b><%= event.klangkellerID%></b><br></span>
             <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
             <b><%= eventDate %></b><br>
+            <% if (event.documentationPath) { %>
+                <%- include(event.documentationPath); %>
+            <% } %>
           </div>
         <% }) %>
     </div>
