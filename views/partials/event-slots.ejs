@@ -17,6 +17,16 @@
           <%= event.slots[x].description%>
         </td>
       </tr>
+      <% if(query.admin === "true") { %>
+    <tr>
+      <td>
+        <form action="/events/performance/<%= event._id%>/<%= event.slots[x]._id %>" method="post">
+          <button type="submit">Delete</button>
+      </form>
+      </td>
+    </tr>
+    <% } %>
+
     <% } else { %>
     <tr>
       <td>

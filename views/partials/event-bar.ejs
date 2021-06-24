@@ -5,6 +5,14 @@
         <% if( event.bar.name != undefined) { %>
           ////////////////////////////<br>
           Bar/Door Staff: <%= event.bar.name %>
+          <tr>
+            <td>
+              <form action="/events/volunteer/<%= event._id%>" method="post">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+  
         <% } else { %>
           ////////////////////////////<br>
           Bar/Door Staff: click to <a href="/events/volunteer/<%= event._id %>">signup</a>

@@ -23,6 +23,7 @@ router.post('/volunteer/:id', slot.saveVolunteer);
 router.post('/exhibit/:id', slot.saveExhibit);
 router.post('/documentation/:id', slot.saveDoc);
 router.post('/performance/:id1/:id2', slot.savePerformance);
+router.post('/performance/delete/:id1/:id2', slot.savePerformance);
 
 // Forwarders for routes that need query params
 router.get('/signup', function (req, res, next) {

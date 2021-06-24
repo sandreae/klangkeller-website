@@ -4,8 +4,11 @@ authController.protectedRoute = function (req, res, next) {
   if (req.session.user) {
     next(); //If session exists, proceed to page
   } else {
-    var err = new Error('Not logged in!');
-    next(err); //Error, trying to access unauthorized page!
+    res.render('auth/login', {
+      content,
+      message: 'You need to be logged in to access this route.',
+      options: req.options,
+    });
   }
 };
 
@@ -37,8 +40,11 @@ authController.loginPost = function (req, res, next) {
         res.redirect('/events/signup');
       }
     });
-    var err = new Error('Invalid credentials!');
-    next(err); //Error, trying to access unauthorized page!
+    res.render('auth/login', {
+      content,
+      message: 'Invalid credentials, please try again.',
+      options: req.options,
+    });
   }
 };
 
