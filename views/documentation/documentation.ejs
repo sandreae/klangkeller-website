@@ -16,24 +16,6 @@
             <span class="title"><b><%= event.klangkellerID%></b><br></span>
             <% var eventDate = event.date; var eventDate = eventDate.toDateString() %>
             <b><%= eventDate %></b><br>
-            <% for(var x=0; x<event.slotNumber;x++) { %>
-            <% if( event.slots[x].title != undefined) { %>
-            ////////////////////////////<br>
-            <b><%= event.slots[x].title %></b><br>
-            <%= event.slots[x].duration%> minutes<br>
-            <%= event.slots[x].description%><br>
-            <% } %><% } %>
-            <p><% if( event.documentation.name != undefined) { %>
-              ////////////////////////////<br>
-              Documentation: <%= event.documentation.name %>
-            <% } %></p>
-            <p><% if( event.bar.name != undefined) { %>
-              ////////////////////////////<br>  
-              Bar/Door Staff: <%= event.bar.name %>
-            <% } %></p>
-            <% if (event.documentationPath) { %>
-                <%- include(event.documentationPath); %>
-            <% } %>
           </div>
         <% }) %>
     </div>
