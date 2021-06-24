@@ -4,6 +4,15 @@
           ////////////////////////////<br>
 			<% if( event.documentation.name != undefined) { %>
 			  Documentation: <%= event.documentation.name %>
+			  <% if(query.admin === "true") { %>
+				<tr>
+					<td>
+						<form action="/events/documentation/<%= event._id%>" method="post">
+							<button type="submit">Delete</button>
+						</form>
+					</td>
+				</tr>
+			<% } %>        	
 			<% } else if (query.signup === "true" || query.admin === "true"){ %>
 			  Documentation: click to <a href="/events/documentation/<%= event._id %>">signup</a>
 			<% } else { %>
