@@ -10,7 +10,7 @@
         <%- content.documentation %>
       </div>
       <% 
-      const reversedEvents = events.reverse()
+      const reversedEvents = data.events.reverse()
       reversedEvents.forEach(event => { %>
           <div class="docu-content">
             <span class="title"><b><%= event.klangkellerID%></b><br></span>
