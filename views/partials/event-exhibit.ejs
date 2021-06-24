@@ -1,7 +1,7 @@
 <html>  
     <% if(event.hasExhibit === "false") { %>
         <tr><td></td></tr>
-    <% } else if (event.exhibit) { %>    
+    <% } else if (event.exhibit.title) { %>    
         <tr>
             <td>
                 ////////////////////////////<br>
@@ -13,6 +13,15 @@
                 <%= event.exhibit.description%>
             </td>
         </tr>
+        <% if(query.admin === "true") { %>
+            <tr>
+                <td>
+                    <form action="/events/exhibit/<%= event._id%>" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+    <% } %>        
     <% } else { %>
         <tr>
             <td>

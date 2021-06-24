@@ -96,7 +96,7 @@ eventController.update = function (req, res) {
         });
       }
       console.log(event);
-      res.redirect('/events/');
+      res.redirect('/');
     },
   );
 };

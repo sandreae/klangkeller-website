@@ -17,7 +17,27 @@ slotController.saveDoc = function (req, res) {
         console.log(err);
       } else {
         console.log('Documentation updated');
-        res.redirect('/events');
+        res.redirect('/');
+      }
+    },
+  );
+};
+
+slotController.deleteDoc = function (req, res) {
+  Event.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      $set: {
+        'documentation.name': null,
+        'documentation.contact': null,
+      },
+    },
+    function (err, doc) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Slot deleted');
+        res.redirect('/');
       }
     },
   );
@@ -37,27 +57,27 @@ slotController.saveVolunteer = function (req, res) {
         console.log(err);
       } else {
         console.log('Bar updated');
-        res.redirect('/events');
+        res.redirect('/');
       }
     },
   );
 };
 
-slotController.saveDocu = function (req, res) {
-  Event.findByIdAndUpdate(
-    req.params.id,
+slotController.deleteVolunteer = function (req, res) {
+  Event.findOneAndUpdate(
+    { _id: req.params.id },
     {
       $set: {
-        'documentation.name': req.body.name,
-        'documentation.contact': req.body.contact,
+        'bar.name': null,
+        'bar.contact': null,
       },
     },
     function (err, doc) {
       if (err) {
         console.log(err);
       } else {
-        console.log('Bar updated');
-        res.redirect('/events');
+        console.log('Slot deleted');
+        res.redirect('/');
       }
     },
   );
@@ -79,7 +99,29 @@ slotController.savePerformance = function (req, res) {
         console.log(err);
       } else {
         console.log('Slot updated');
-        res.redirect('/events');
+        res.redirect('/');
+      }
+    },
+  );
+};
+
+slotController.deletePerformance = function (req, res) {
+  Event.findOneAndUpdate(
+    { _id: req.params.id1, 'slots._id': req.params.id2 },
+    {
+      $set: {
+        'slots.$.title': null,
+        'slots.$.description': null,
+        'slots.$.duration': null,
+        'slots.$.contact': null,
+      },
+    },
+    function (err, doc) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Slot deleted');
+        res.redirect('/');
       }
     },
   );
@@ -100,7 +142,28 @@ slotController.saveExhibit = function (req, res) {
         console.log(err);
       } else {
         console.log('Exhibit updated');
-        res.redirect('/events');
+        res.redirect('/');
+      }
+    },
+  );
+};
+
+slotController.deleteExhibit = function (req, res) {
+  Event.findOneAndUpdate(
+    { _id: req.params.id },
+    {
+      $set: {
+        'exhibit.title': null,
+        'exhibit.description': null,
+        'exhibit.contact': null,
+      },
+    },
+    function (err, doc) {
+      if (err) {
+        console.log(err);
+      } else {
+        console.log('Slot deleted');
+        res.redirect('/');
       }
     },
   );
