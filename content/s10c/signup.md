@@ -10,7 +10,7 @@ VENUE + EQUIPMENT
 
 All events happen in the project space at SET Lewisham (floor plan) (picture)
 
-Due to noise restrictions we can't have really loud music for sustained periods, but I think most things can be acocmodated. Maybe just mention if you think this could be an issue for your performance.
+Due to noise restrictions we can't have really loud music for sustained periods, but I think most things can be accomodated. Maybe just mention if you think this could be an issue for your performance.
 
 The room has a *very* bright and reverberant acoustic... we're going to try and dampen it with curtains but there is only so much that can be done.
 
