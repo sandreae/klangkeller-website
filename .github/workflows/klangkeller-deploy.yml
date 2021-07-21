@@ -5,7 +5,7 @@ name: 'klangkeller-website deploy'
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
