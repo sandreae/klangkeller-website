@@ -18,7 +18,6 @@ Available equipment:
 
 - 2 x genelec studio monitors
 - 1 x guitar amp
-- 1 x bass amp
 - 2 x SM58 mic
 - 2 x XLR cable
 - 1 x micro mixer
