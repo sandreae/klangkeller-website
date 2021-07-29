@@ -1,5 +1,11 @@
 ///////////////////////
 
+COVID 19
+
+COVID 19: We're limiting capacity to 30 people which is the recommended capacity following COVID-19 recommendations. It's not necessary to reserve a ticket, but if you know you want to come please send us an email (address below) so we have an idea of numbers. The space will be well ventilated throughout and if you are comfortable wearing a mask please do so.
+
+///////////////////////
+
 SIGNUP INFO
 
 click the link on the slot you would like to sign-up for and then fill in the form, once you click save your performance will be directly listed in the program ;-) you can signup with a group or solo, it's entirely up to you.
