@@ -1,11 +1,12 @@
 {
     "Site": {
-        "title": "KLANGKELLER",
+        "title": "Untergrün",
         "venues": ["hof"],
         "organisers": [{"name": "team", "email": "team[at]klangkeller.net"}],
         "dbString": null,
         "user": null,
         "password": null,
-        "contentPath": "klangkeller"
+        "contentPath": "untergrun",
+        "slotLengthsMinutes": [30, 30, 30]
     }
 }
