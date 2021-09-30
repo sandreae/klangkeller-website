@@ -1,6 +1,6 @@
 <div style="background-color: green; padding: 10px; color: lime;">
 
-![logo](/documentation/015/015_1.JPG)
+![logo](/img/untergruen_logo.jpg)
 
 ***Untergrün***
 
