@@ -7,6 +7,6 @@
         "user": null,
         "password": null,
         "contentPath": "untergrun",
-        "slotLengthsMinutes": [30, 30, 30]
+        "slotLengthsMinutes": [25, 25, 25]
     }
 }
