@@ -6,7 +6,7 @@
 
 *Untergrün is a series of concerts showcasing performance-based sonic art in all its forms. It is a space where diverse styles and approaches to sound and music can meet, merge, diverge, integrate, collaborate, collide, transmute. At Untergrün the acoustic realm is a zone that allows practitioners and audiences alike to experience the transformative possibilities inherent in shared sonic experiences. This will open up fresh perspectives on contemporary sonic aesthetics.*
 
-*Untergrün take place at Kastanienallee 77 (Prenzlauer Berg, Berlin)*
+*Untergrün takes place at Kastanienallee 77 (Prenzlauer Berg, Berlin)*
 
 ///
 
