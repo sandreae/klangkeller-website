@@ -2,7 +2,7 @@
     "Site": {
         "title": "Untergrün",
         "venues": ["hof"],
-        "organisers": [{"name": "team", "email": "team[at]klangkeller.net"}],
+        "organisers": [{"name": "team", "email": "info[AT]untergruen.net"}],
         "dbString": null,
         "user": null,
         "password": null,
