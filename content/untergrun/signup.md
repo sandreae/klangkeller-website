@@ -1,3 +1,5 @@
+<div style="background-color: green; padding: 10px; color: lime;">
+
 ///////////////////////
 
 SIGNUP INFO
@@ -38,3 +40,5 @@ We welcome any kind of documentation (text, photo, video, audio, memory, graphic
 MONEY
 
 All performers, staff and documentarians split split all profits. It won't be a lot of money, but we will share everything fairly.
+
+</div>
