@@ -1,0 +1,12 @@
+{
+    "Site": {
+        "title": "Curious Ear",
+        "venues": ["Peer Hat"],
+        "organisers": [{"name": "team", "email": "info[AT]curious-ear.co.uk"}],
+        "dbString": null,
+        "user": null,
+        "password": null,
+        "contentPath": "curious-ear",
+        "slotLengthsMinutes": [20, 30, 40]
+    }
+}
