@@ -1,7 +1,7 @@
 {
     "Site": {
         "title": "Untergrün",
-        "venues": ["hof"],
+        "venues": ["hof", "keller", "kino"],
         "organisers": [{"name": "team", "email": "info[AT]untergruen.net"}],
         "dbString": null,
         "user": null,
