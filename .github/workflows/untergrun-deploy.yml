@@ -1,5 +1,5 @@
 ---
-name: 'klangkeller-website deploy'
+name: 'untergrun-website deploy'
 
 # yamllint disable-line rule:truthy
 on:
