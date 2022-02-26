@@ -8,12 +8,7 @@ click the link on the slot you would like to sign-up for and then fill in the fo
 
 VENUES
 
-Kino: PA, mixer, one SM58 microphone, projector (with HDMI cable), cinema screen [no drums or loud amplification here, sorry.]
-Keller: PA, mixer, one SM58 microphone
-Hof: only acoustic (or portable electronic) performances/presentations
-
-Due to noise restrictions we have to limit the activities which can happen in the Kino, so no drums or amps here, if you wanna be loud then pick a Keller night. Thanks for your understanding!
-Please assume there is no other equipment available and unless you contact us in advance quite limited time for setup/soundcheck.
+We don’t have a PA, please bring your own amplification if you need it. At Kino there's a projector (with HDMI cable) and a cinema screen; no drums or loud amplification here, sorry. At Hof only acoustic (or portable electronic) performances/presentations.
 
 ///////////////////////
 
