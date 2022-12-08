@@ -9,14 +9,14 @@
     "lint": "npm run lint:ejs && npm run lint:js"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "config": "^3.3.6",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.0",
     "e": "0.0.4",
     "ejs": "~3.1.6",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.17.1",
     "gray-matter": "^4.0.2",
     "leaflet-map": "^0.2.1",
