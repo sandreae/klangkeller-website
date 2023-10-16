@@ -63,6 +63,10 @@ app.use((req, res, next) => {
       fetchContent('signup') ||
         'Please create signup.md file, see docs for help.',
     ),
+    slotsHeader: md.render(
+      fetchContent('slots-header') ||
+        'Please create slots-header.md file, see docs for help.',
+    ),
     documentation: md.render(
       fetchContent('documentation') ||
         'Please create documentation.md file, see docs for help.',

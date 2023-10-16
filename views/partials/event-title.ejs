@@ -1,13 +1,19 @@
 <html>
-  <tr>
-    <td>
-      <span class="title"><b><%= event.klangkellerID%></b></span>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <b><%= event.date.toDateString() %><br>
-      <%= event.time%> at <%= event.venue%></b>
-    </td>
-  </tr>
+<tr>
+  <td>
+    <span class="title"><b>
+        <%= event.klangkellerID%>
+      </b></span>
+  </td>
+</tr>
+<tr>
+  <td>
+    <b>
+      <%= event.date.toDateString() %><br>
+        <%= event.time%> at <%= event.venue%>
+    </b><br>
+    <i><%- content.slotsHeader %></i>
+  </td>
+</tr>
+
 </html>

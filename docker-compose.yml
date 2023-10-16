@@ -8,8 +8,8 @@ services:
     external_links:
       - mongo
     environment: 
-      - MONGO_URL=mongodb://mongo:27017/klangkeller
-      - NODE_APP_INSTANCE=s10c
+      - MONGO_URL=mongodb://mongo:27017/untergrun
+      - NODE_APP_INSTANCE=untergrun
       - USER=admin
       - PASSWORD=pass
     volumes:
