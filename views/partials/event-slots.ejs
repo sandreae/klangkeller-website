@@ -1,48 +1,48 @@
 <html>
-  <% for(var x=0; x < event.slotNumber;x++) { if(event.slots[x].title !=undefined) { %>
+<% for(var x=0; x < event.slotNumber;x++) { if(event.slots[x].title !=undefined) { %>
+  <tr>
+    <td>
+      ////////////////////////////<br>
+      <b>
+        <%= event.slots[x].title%>
+      </b>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= event.slots[x].duration%> minutes
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= event.slots[x].description%>
+    </td>
+  </tr>
+  <% if(query.admin==="true" ) { %>
     <tr>
       <td>
-        ////////////////////////////<br>
-        <b>
-          <%= event.slots[x].title%>
-        </b>
+        <form action="/events/performance/<%= event._id%>/<%= event.slots[x]._id %>" method="post">
+          <button type="submit">Delete</button>
+        </form>
       </td>
     </tr>
-    <tr>
-      <td>
-        <%= event.slots[x].duration%> minutes
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <%= event.slots[x].description%>
-      </td>
-    </tr>
-    <% if(query.admin==="true" ) { %>
-      <tr>
-        <td>
-          <form action="/events/performance/<%= event._id%>/<%= event.slots[x]._id %>" method="post">
-            <button type="submit">Delete</button>
-          </form>
-        </td>
-      </tr>
-      <% } %>
+    <% } %>
 
-        <% } else { %>
-          <tr>
-            <td>
-              ////////////////////////////<br>
-              <% if(query.signup==="true" && event.countdown.signupLink===true) { %>
-                <b>Live slot:</b> click to <a
-                  href="/events/performance/<%= event._id %>?slot=<%= event.slots[x]._id %>">signup</a>
-                <% } else { %>
-                  <b>Live slot:</b> not available yet
-                  <% } %>
-                    <br>some slots have special requirements, please check the sign-up info carefully
+      <% } else { %>
+        <tr>
+          <td>
+            ////////////////////////////<br>
+            <% if(query.signup==="true" && event.countdown.signupLink===true) { %>
+              <b>Live slot:</b> click to <a
+                href="/events/performance/<%= event._id %>?slot=<%= event.slots[x]._id %>">signup</a>
+              <% } else { %>
+                <b>Live slot:</b> not available yet
+                <% } %>
+                  <br>some slots have special requirements, please check the sign-up info carefully
 
-            </td>
-          </tr>
+          </td>
+        </tr>
+        <% } %>
           <% } %>
-            <% } %>
 
 </html>
