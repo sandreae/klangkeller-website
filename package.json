@@ -21,7 +21,7 @@
     "gray-matter": "^4.0.2",
     "leaflet-map": "^0.2.1",
     "markdown-it": "^12.0.4",
-    "mongoose": "^5.12.3",
+    "mongoose": "^5.13.15",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
     "normalize-url": ">=4.5.1",
