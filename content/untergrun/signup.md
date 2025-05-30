@@ -8,12 +8,6 @@ click the link on the slot you would like to sign-up for and then fill in the fo
 
 ///////////////////////
 
-FLINTA\* slot
-
-The first slot is reserved for artists who are FLINTA\* (woman, lesbian, intersex, non-binary, trans and agender).
-
-///////////////////////
-
 VENUES
 
 We have a PA. At Kino there's a projector (with HDMI cable) and a cinema screen; no drums or loud amplification here, sorry. At Hof only acoustic (or portable electronic) performances/presentations.

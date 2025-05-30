@@ -1,1 +1,0 @@
-The first slot is reserved for artists who are FLINTA* (woman, lesbian, intersex, non-binary, trans and agender).
