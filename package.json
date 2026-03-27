@@ -20,7 +20,7 @@
     "express-session": "^1.17.1",
     "gray-matter": "^4.0.2",
     "leaflet-map": "^0.2.1",
-    "markdown-it": "^12.0.4",
+    "markdown-it": "^12.3.2",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.7",
